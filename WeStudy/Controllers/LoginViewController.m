@@ -26,6 +26,12 @@
 // 保存登录信息，自动登录 -- 这里是写入，需要初始化
 @property (nonatomic,strong) NSUserDefaults *loginUserDefaults;
 
+// 缓存头像
+@property (nonatomic,strong) UIImage *imgPortait;
+
+// 缓存头像路径
+@property (nonatomic,strong) NSString *pathCachePortrait;
+
 @end
 
 @implementation LoginViewController
@@ -56,6 +62,9 @@
     // 设置输入框的左侧，用 label 撑出空白
     [self setLoginLeft];
     
+    // 得到缓存路径，用来存放缓存头像
+    self.pathCachePortrait = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
 }
 
 // 设置状态栏前景色为白色
@@ -85,7 +94,7 @@
         
         // 服务器登录返回状态值
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-        // NSLog(@"%@",dic);
+//         NSLog(@"%@",dic);
         
         // 登录成功
         if ([[dic objectForKey:@"code"] isEqualToString:@"OK"]) {
@@ -93,10 +102,17 @@
             [_loginUserDefaults setObject:[dic objectForKey:@"code"] forKey:@"loginok"];    // 登录成功标识
             [_loginUserDefaults setObject:[dic objectForKey:@"message"] forKey:@"username"];    // 用户名
             [_loginUserDefaults setObject:[dic objectForKey:@"studydata"] forKey:@"studydata"]; // 学习数据
-            [_loginUserDefaults setObject:[dic objectForKey:@"pidportrait"] forKey:@"domainOfPortrait"]; // 头像路径
+            
             
             // 头像图片缓存，正在登陆中加载
-            ///////////////// 待完成 ////////////////////
+            // 用服务器端的 data 关键字为 pid 组合成图片缓存路径
+            NSString *filePathCachePortrait = [self.pathCachePortrait stringByAppendingString:[NSString stringWithFormat:@"/%@.png",[dic objectForKey:@"data"]]];
+            // 请求 NSData 图片数据
+            NSData *dataOfPortrait = [NSData dataWithContentsOfURL:[NSURL URLWithString:[dic objectForKey:@"pidportrait"]]];
+            // 将图片写入缓存
+            [UIImagePNGRepresentation([UIImage imageWithData:dataOfPortrait]) writeToFile:filePathCachePortrait atomically:YES];
+            // 将缓存的头像图片完整路径存入 NSUserDefaults
+            [_loginUserDefaults setObject:filePathCachePortrait forKey:@"domainOfPortrait"]; // 头像路径
             
             // 同步写入，如果没有调用synchronize方法，系统会根据I/O情况不定时刻地保存到文件中。所以如果需要立即写入文件的就必须调用synchronize方法。
             [_loginUserDefaults synchronize];

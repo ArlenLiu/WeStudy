@@ -572,6 +572,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WeStudy/Frameworks/lib",
 				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arlen.WeStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -590,6 +591,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WeStudy/Frameworks/lib",
 				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arlen.WeStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

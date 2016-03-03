@@ -66,10 +66,10 @@
         NSString *name = [self.loginUserDefaults stringForKey:@"username"]; // 用户名
         NSString *studyata  =[self.loginUserDefaults stringForKey:@"studydata"];    // 学习数据
         NSString *domainOfPortrait  =[self.loginUserDefaults stringForKey:@"domainOfPortrait"]; // 头像
-        
+//        NSLog(@"%@",domainOfPortrait);
         [self.userName setTitle:[NSString stringWithFormat:@"欢迎您:%@",name] forState:UIControlStateNormal]; // 用户名
         [self.studyData setTitle:studyata forState:UIControlStateNormal];   // 学习数据
-        self.portraitView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:domainOfPortrait]]];    // 头像
+        self.portraitView.image = [UIImage imageNamed:domainOfPortrait];    // 头像
     }
     // 已经登陆过不能再请求图片，从图片缓存读取
     ///////////////// 待完成 ////////////////////
