@@ -34,6 +34,10 @@
 #define URL_LOGIN_LGJ @"http://www.liugangjian.com/loginios.php"
 
 
+// 高德地图 KEY
+#define AMAP_KEY @"fd144f4d4f1f16445db2cd8c38aa661f"
+
+
 
 @interface Contants : NSObject
 
