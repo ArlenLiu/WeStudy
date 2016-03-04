@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "JPUSHService.h"
 
 @interface AppDelegate ()
 
@@ -25,49 +24,11 @@
     // 隐藏 navigationbar 下划线
 //    [self hideNaviUnderline];
     
-    // 极光推送
-    [self JPUSH];
-    // 下面这句话不加会失败
-    /*
-     2.1.0 版本开始，新增了带参数的setupWithOption初始化方法，可通过此方法等参数传入AppKey等信息。1.8.8及之前版本的 JPush SDK只能通过PushConfig.plist配置AppKey等信息。
-     */
-    [JPUSHService setupWithOption:launchOptions appKey:@"607a017e0a66ffbdf79e782e" channel:@"App Store" apsForProduction:0];
-    
-    
-    // 设置 tabbar 未选中和选中的文字颜色
-//    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:10.0f],NSForegroundColorAttributeName : [UIColor whiteColor]} forState:UIControlStateSelected];
-//    
-//    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:10.0f], NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateNormal];
-//    [[UITabBar appearance] setTintColor:[UIColor blackColor]];
-    
-    
+
     
     return YES;
 }
 
-// 极光推送
-- (void)JPUSH {
-    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
-        [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeAlert | UIUserNotificationTypeSound | UIUserNotificationTypeBadge) categories:nil];
-    }else {
-        [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound) categories:nil];
-    }
-}
-#pragma mark - 推送的最原生的做法
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    // 原生：你给后台一个生产的 p12 文件
-    [JPUSHService registerDeviceToken:deviceToken];
-}
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [JPUSHService handleRemoteNotification:userInfo];   // 前台
-}
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    [JPUSHService handleRemoteNotification:userInfo];    // 后台
-    completionHandler(UIBackgroundFetchResultNewData);
-}
-- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    NSLog(@"%@",error);
-}
 
 // 隐藏 navigationbar 下划线
 - (void)hideNaviUnderline {

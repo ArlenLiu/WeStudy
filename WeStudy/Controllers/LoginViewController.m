@@ -94,7 +94,7 @@
         
         // 服务器登录返回状态值
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-//         NSLog(@"%@",dic);
+        // NSLog(@"%@",dic);
         
         // 登录成功
         if ([[dic objectForKey:@"code"] isEqualToString:@"OK"]) {
@@ -102,17 +102,21 @@
             [_loginUserDefaults setObject:[dic objectForKey:@"code"] forKey:@"loginok"];    // 登录成功标识
             [_loginUserDefaults setObject:[dic objectForKey:@"message"] forKey:@"username"];    // 用户名
             [_loginUserDefaults setObject:[dic objectForKey:@"studydata"] forKey:@"studydata"]; // 学习数据
+            [_loginUserDefaults setObject:[dic objectForKey:@"pidportrait"] forKey:@"urlOfPortrait"]; // 头像 URL 路径
             
-            
+            // personal 中已经登陆过不能再请求图片，从图片缓存读取
             // 头像图片缓存，正在登陆中加载
             // 用服务器端的 data 关键字为 pid 组合成图片缓存路径
             NSString *filePathCachePortrait = [self.pathCachePortrait stringByAppendingString:[NSString stringWithFormat:@"/%@.png",[dic objectForKey:@"data"]]];
+            
             // 请求 NSData 图片数据
-            NSData *dataOfPortrait = [NSData dataWithContentsOfURL:[NSURL URLWithString:[dic objectForKey:@"pidportrait"]]];
-            // 将图片写入缓存
-            [UIImagePNGRepresentation([UIImage imageWithData:dataOfPortrait]) writeToFile:filePathCachePortrait atomically:YES];
+            [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[dic objectForKey:@"pidportrait"]]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *err) {
+                // 将图片写入缓存
+                [data writeToFile:filePathCachePortrait atomically:YES];
+            }];
+            
             // 将缓存的头像图片完整路径存入 NSUserDefaults
-            [_loginUserDefaults setObject:filePathCachePortrait forKey:@"domainOfPortrait"]; // 头像路径
+            [_loginUserDefaults setObject:filePathCachePortrait forKey:@"pathOfPortrait"]; // 头像缓存路径
             
             // 同步写入，如果没有调用synchronize方法，系统会根据I/O情况不定时刻地保存到文件中。所以如果需要立即写入文件的就必须调用synchronize方法。
             [_loginUserDefaults synchronize];
@@ -127,6 +131,7 @@
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        ///////////// 在这里可做网络判断
         NSLog(@"request error: %@",error);
     }];
 }

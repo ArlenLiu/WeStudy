@@ -13,6 +13,7 @@
 #import "FrendsViewController.h"
 #import "CourseViewController.h"
 #import "PersonalViewController.h"
+#import "LeftDrawerViewController.h"
 
 @interface RootViewController ()
 
@@ -71,10 +72,14 @@
     
 }
 
-// 左侧按钮点击事件 -- 抽屉效果
+
+///////////////// 待完成 ////////////////////
+// 左侧书签按钮点击事件 -- 抽屉效果
 - (void)leftClick {
-    
+    LeftDrawerViewController *leftDrawer = [[LeftDrawerViewController alloc] init];
+    [self presentViewController:leftDrawer animated:YES completion:nil];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

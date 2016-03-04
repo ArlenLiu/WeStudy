@@ -52,7 +52,7 @@
     // ?
     [self.navigationController popViewControllerAnimated:YES];
     
-    ///////////////// 待完成 ////////////////////
+    ///////////////// 待完成，注销之后界面变化或退出程序？ ////////////////////
 }
 
 

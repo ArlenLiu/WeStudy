@@ -17,17 +17,6 @@
 		BC5C24A21C770D5B003D6FE9 /* FrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5C24A11C770D5B003D6FE9 /* FrendsViewController.m */; };
 		BC5C24A51C770D71003D6FE9 /* CourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5C24A41C770D71003D6FE9 /* CourseViewController.m */; };
 		BC5C24A81C770D85003D6FE9 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5C24A71C770D85003D6FE9 /* PersonalViewController.m */; };
-		CC960AEC1C86AEED009CF7D9 /* JPushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC960AEB1C86AEED009CF7D9 /* JPushConfig.plist */; };
-		CC960AF01C86B2F6009CF7D9 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC960AEE1C86B2F6009CF7D9 /* jpush-ios-2.1.0.a */; };
-		CC960AF21C86B39A009CF7D9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC960AF11C86B39A009CF7D9 /* CFNetwork.framework */; };
-		CC960AF41C86B3AB009CF7D9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC960AF31C86B3AB009CF7D9 /* CoreFoundation.framework */; };
-		CC960AF61C86B3B5009CF7D9 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC960AF51C86B3B5009CF7D9 /* CoreTelephony.framework */; };
-		CC960AF81C86B3BE009CF7D9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC960AF71C86B3BE009CF7D9 /* SystemConfiguration.framework */; };
-		CC960AFA1C86B3C8009CF7D9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC960AF91C86B3C8009CF7D9 /* CoreGraphics.framework */; };
-		CC960AFC1C86B3CE009CF7D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC960AFB1C86B3CE009CF7D9 /* Foundation.framework */; };
-		CC960AFE1C86B3D5009CF7D9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC960AFD1C86B3D5009CF7D9 /* UIKit.framework */; };
-		CC960B001C86B3DB009CF7D9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC960AFF1C86B3DB009CF7D9 /* Security.framework */; };
-		CC960B021C86B3E4009CF7D9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC960B011C86B3E4009CF7D9 /* libz.tbd */; };
 		CC97B56E1C804EE1004387D5 /* Contants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC97B56D1C804EE1004387D5 /* Contants.m */; };
 		CC9EBDA11C849097007BEDDE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9EBDA01C849097007BEDDE /* LoginViewController.m */; };
 		CCA600EC1C8086D7002AF9D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCA600EB1C8086D7002AF9D2 /* Assets.xcassets */; };
@@ -69,18 +58,6 @@
 		BC5C24A41C770D71003D6FE9 /* CourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseViewController.m; sourceTree = "<group>"; };
 		BC5C24A61C770D85003D6FE9 /* PersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
 		BC5C24A71C770D85003D6FE9 /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
-		CC960AEB1C86AEED009CF7D9 /* JPushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JPushConfig.plist; sourceTree = "<group>"; };
-		CC960AEE1C86B2F6009CF7D9 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
-		CC960AEF1C86B2F6009CF7D9 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
-		CC960AF11C86B39A009CF7D9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		CC960AF31C86B3AB009CF7D9 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		CC960AF51C86B3B5009CF7D9 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		CC960AF71C86B3BE009CF7D9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		CC960AF91C86B3C8009CF7D9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CC960AFB1C86B3CE009CF7D9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		CC960AFD1C86B3D5009CF7D9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		CC960AFF1C86B3DB009CF7D9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		CC960B011C86B3E4009CF7D9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		CC97B56C1C804EE1004387D5 /* Contants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contants.h; sourceTree = "<group>"; };
 		CC97B56D1C804EE1004387D5 /* Contants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contants.m; sourceTree = "<group>"; };
 		CC9EBD9F1C849097007BEDDE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -126,16 +103,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC960B021C86B3E4009CF7D9 /* libz.tbd in Frameworks */,
-				CC960B001C86B3DB009CF7D9 /* Security.framework in Frameworks */,
-				CC960AFE1C86B3D5009CF7D9 /* UIKit.framework in Frameworks */,
-				CC960AFC1C86B3CE009CF7D9 /* Foundation.framework in Frameworks */,
-				CC960AFA1C86B3C8009CF7D9 /* CoreGraphics.framework in Frameworks */,
-				CC960AF81C86B3BE009CF7D9 /* SystemConfiguration.framework in Frameworks */,
-				CC960AF61C86B3B5009CF7D9 /* CoreTelephony.framework in Frameworks */,
-				CC960AF41C86B3AB009CF7D9 /* CoreFoundation.framework in Frameworks */,
-				CC960AF21C86B39A009CF7D9 /* CFNetwork.framework in Frameworks */,
-				CC960AF01C86B2F6009CF7D9 /* jpush-ios-2.1.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,7 +148,6 @@
 			children = (
 				BC5C240C1C769F8E003D6FE9 /* Info.plist */,
 				BC5C23FC1C769F8E003D6FE9 /* main.m */,
-				CC960AEB1C86AEED009CF7D9 /* JPushConfig.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -265,29 +231,9 @@
 		CC7F37A41C8196AD00BE44C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CC960B011C86B3E4009CF7D9 /* libz.tbd */,
-				CC960AFF1C86B3DB009CF7D9 /* Security.framework */,
-				CC960AFD1C86B3D5009CF7D9 /* UIKit.framework */,
-				CC960AFB1C86B3CE009CF7D9 /* Foundation.framework */,
-				CC960AF91C86B3C8009CF7D9 /* CoreGraphics.framework */,
-				CC960AF71C86B3BE009CF7D9 /* SystemConfiguration.framework */,
-				CC960AF51C86B3B5009CF7D9 /* CoreTelephony.framework */,
-				CC960AF31C86B3AB009CF7D9 /* CoreFoundation.framework */,
-				CC960AF11C86B39A009CF7D9 /* CFNetwork.framework */,
-				CC960AED1C86B2F6009CF7D9 /* lib-JPUSH */,
 				CCC6A0EB1C841F460017D874 /* AFNetworking */,
 			);
 			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		CC960AED1C86B2F6009CF7D9 /* lib-JPUSH */ = {
-			isa = PBXGroup;
-			children = (
-				CC960AEE1C86B2F6009CF7D9 /* jpush-ios-2.1.0.a */,
-				CC960AEF1C86B2F6009CF7D9 /* JPUSHService.h */,
-			);
-			name = "lib-JPUSH";
-			path = lib;
 			sourceTree = "<group>";
 		};
 		CCC6A0EB1C841F460017D874 /* AFNetworking */ = {
@@ -380,10 +326,10 @@
 						DevelopmentTeam = 62J9PNA9KJ;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -415,7 +361,6 @@
 				BC5C240B1C769F8E003D6FE9 /* LaunchScreen.storyboard in Resources */,
 				CCA600EC1C8086D7002AF9D2 /* Assets.xcassets in Resources */,
 				BC5C24061C769F8E003D6FE9 /* Main.storyboard in Resources */,
-				CC960AEC1C86AEED009CF7D9 /* JPushConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

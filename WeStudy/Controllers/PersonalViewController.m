@@ -58,22 +58,35 @@
 // 登录成功后，刷新数据（由于从登录页面成功后到此页面是 dismiss 的，数据在那边刷新不了，在这里做）
 // 如果已经登录（NsUserDefaults 中有登录账户），直接进入显示登录
 - (void)viewWillAppear:(BOOL)animated {
-    // 账户信息，来自 NSUserDefaults
     NSString *loginok = [self.loginUserDefaults stringForKey:@"loginok"];
     
     // 登录成功，刷新用户名、学习数据、头像，自动登录
     if (loginok != nil) {
-        NSString *name = [self.loginUserDefaults stringForKey:@"username"]; // 用户名
-        NSString *studyata  =[self.loginUserDefaults stringForKey:@"studydata"];    // 学习数据
-        NSString *domainOfPortrait  =[self.loginUserDefaults stringForKey:@"domainOfPortrait"]; // 头像
-//        NSLog(@"%@",domainOfPortrait);
-        [self.userName setTitle:[NSString stringWithFormat:@"欢迎您:%@",name] forState:UIControlStateNormal]; // 用户名
-        [self.studyData setTitle:studyata forState:UIControlStateNormal];   // 学习数据
-        self.portraitView.image = [UIImage imageNamed:domainOfPortrait];    // 头像
+        NSString *name = [self.loginUserDefaults stringForKey:@"username"];
+        NSString *studyata  =[self.loginUserDefaults stringForKey:@"studydata"];
+        NSString *pathOfPortrait  =[self.loginUserDefaults stringForKey:@"pathOfPortrait"];
+        
+        [self.userName setTitle:[NSString stringWithFormat:@"欢迎您:%@",name] forState:UIControlStateNormal];
+        [self.studyData setTitle:studyata forState:UIControlStateNormal];
+        
+        // 保证图片存在，没有就从网络请求重新缓存 -- 否则切换界面刷新界面时出现卡顿
+        NSFileManager *manager = [NSFileManager defaultManager];
+        if ([manager fileExistsAtPath:pathOfPortrait]) {
+            self.portraitView.image = [UIImage imageNamed:pathOfPortrait];    // 头像 -- 已登录
+        }else {
+            // 沙盒中没有图片就从网络请求
+            NSURL *url = [NSURL URLWithString:[self.loginUserDefaults stringForKey:@"urlOfPortrait"]];
+            [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:url] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+                self.portraitView.image = [UIImage imageWithData:data];     // 头像 -- 已登录
+                // 将图片写入缓存，此时重新获取沙盒 pathOfPortrait 这个路径可能会发生变化
+                [data writeToFile:pathOfPortrait atomically:YES];   // !!! 路径
+            }];
+        }
+        
+        // 测试
+//        NSLog(@"%@",pathOfPortrait);
+//        NSLog(@"%@",[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0]);
     }
-    // 已经登陆过不能再请求图片，从图片缓存读取
-    ///////////////// 待完成 ////////////////////
-    
 }
 
 // 头像图片手势
@@ -95,12 +108,8 @@
 
 // 修改头像的协议方法
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
     ///////////////// 待完成 ////////////////////
 }
-
-// 左侧书签按钮 -- 抽屉
-///////////////// 待完成 ////////////////////
 
 // navigation 右侧设置按钮
 - (IBAction)rightSettings:(UIBarButtonItem *)sender {
