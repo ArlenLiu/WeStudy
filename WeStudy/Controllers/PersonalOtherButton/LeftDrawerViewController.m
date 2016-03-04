@@ -25,7 +25,19 @@
     // 右侧按钮标题
     self.navigationItem.title = @"抽屉";
     
+    UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, 150, 100)];
+    [back setTitle:@"返回" forState:UIControlStateNormal];
+    [back setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [back setBackgroundColor:[UIColor yellowColor]];
+    [self.view addSubview:back];
+    [back addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
 }
+
+// back 点击事件
+- (void)back:(UIButton *)btn {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+    
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

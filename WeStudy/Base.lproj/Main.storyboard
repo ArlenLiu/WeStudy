@@ -76,10 +76,10 @@
             </objects>
             <point key="canvasLocation" x="597" y="682"/>
         </scene>
-        <!--Trends View Controller-->
+        <!--Course View Controller-->
         <scene sceneID="cvN-Iv-XfP">
             <objects>
-                <viewController id="5xF-Rs-GzY" customClass="TrendsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="course" id="5xF-Rs-GzY" customClass="CourseViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0zx-0W-H0U"/>
                         <viewControllerLayoutGuide type="bottom" id="nCr-5p-kGa"/>
@@ -87,6 +87,18 @@
                     <view key="view" contentMode="scaleToFill" id="kLl-3f-g3x">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVm-WL-rpS">
+                                <rect key="frame" x="20" y="72" width="124" height="53"/>
+                                <color key="backgroundColor" red="1" green="0.63385474519999996" blue="0.36554020770000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="返回">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="5xF-Rs-GzY" eventType="touchUpInside" id="PZL-Is-tU0"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="9y8-Lg-Wml"/>

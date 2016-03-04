@@ -19,8 +19,19 @@
     // Do any additional setup after loading the view.
     
 //    self.view.backgroundColor = [UIColor blueColor];
+    // 导航条返回键文字颜色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    // 设置背景色
+    self.view.backgroundColor = [UIColor whiteColor];
+    // 右侧按钮标题
+    self.navigationItem.title = @"Course";
     
 }
+
+- (IBAction)back:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

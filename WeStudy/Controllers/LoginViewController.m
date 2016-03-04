@@ -89,7 +89,7 @@
     // JSON 解析器
     _manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-    // URL_LOGIN_LGJ    URL_LOGIN_LOCAL
+    // URL_LOGIN_LOCAL    URL_LOGIN_LGJ
     [_manager POST:URL_LOGIN_LGJ parameters:dicParams progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         // 服务器登录返回状态值
