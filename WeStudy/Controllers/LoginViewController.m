@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "Contants.h"
-#import "AFNetworking.h"
+#import "UtilMethod.h"
 
 @interface LoginViewController () <UITextFieldDelegate>
 
@@ -19,9 +19,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *tfUser;
 
 @property (weak, nonatomic) IBOutlet UITextField *tfPwd;
-
-// AFNetworking 请求会话管理器
-@property (nonatomic,strong) AFHTTPSessionManager *manager;
 
 // 保存登录信息，自动登录 -- 这里是写入，需要初始化
 @property (nonatomic,strong) NSUserDefaults *loginUserDefaults;
@@ -49,15 +46,14 @@
     self.loginBtn.layer.cornerRadius = LOGIN_CORNER;
     self.tfUser.layer.cornerRadius = LOGIN_CORNER;
     self.tfPwd.layer.cornerRadius = LOGIN_CORNER;
+    // 登录 tf 为第一响应者
+    [self.tfUser becomeFirstResponder];
     
     // UITextField 代理
     self.tfUser.delegate = self;
     self.tfPwd.delegate = self;
     self.tfUser.tag = 111;
     self.tfPwd.tag = 112;
-    
-    // 初始化 AFNetworking 请求会话管理器
-    self.manager = [AFHTTPSessionManager manager];
     
     // 设置输入框的左侧，用 label 撑出空白
     [self setLoginLeft];
@@ -86,11 +82,11 @@
     
     NSDictionary *dicParams = [NSDictionary dictionaryWithObjectsAndKeys:_tfUser.text,user_name_ios,_tfPwd.text,user_pwd_ios, nil];
     
-    // JSON 解析器
-    _manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    // AFNetWorking
+    AFHTTPSessionManager *manager = [UtilMethod managerHTTP];
     
     // URL_LOGIN_LOCAL    URL_LOGIN_LGJ
-    [_manager POST:URL_LOGIN_LGJ parameters:dicParams progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager POST:URL_LOGIN_LGJ parameters:dicParams progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         // 服务器登录返回状态值
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];

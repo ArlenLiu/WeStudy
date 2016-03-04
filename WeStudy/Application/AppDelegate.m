@@ -24,8 +24,6 @@
     // 隐藏 navigationbar 下划线
 //    [self hideNaviUnderline];
     
-
-    
     return YES;
 }
 

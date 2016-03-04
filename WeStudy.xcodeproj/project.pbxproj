@@ -17,6 +17,12 @@
 		BC5C24A21C770D5B003D6FE9 /* FrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5C24A11C770D5B003D6FE9 /* FrendsViewController.m */; };
 		BC5C24A51C770D71003D6FE9 /* CourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5C24A41C770D71003D6FE9 /* CourseViewController.m */; };
 		BC5C24A81C770D85003D6FE9 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5C24A71C770D85003D6FE9 /* PersonalViewController.m */; };
+		CC12F3971C8952BA00F4C425 /* IndustryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC12F3961C8952BA00F4C425 /* IndustryCollectionViewCell.m */; };
+		CC12F39A1C89551100F4C425 /* UtilMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = CC12F3991C89551100F4C425 /* UtilMethod.m */; };
+		CC12F39E1C89629600F4C425 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CC12F39D1C89629600F4C425 /* GDataXMLNode.m */; };
+		CC12F3A01C8962BA00F4C425 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC12F39F1C8962BA00F4C425 /* libxml2.tbd */; };
+		CC12F3A41C89924200F4C425 /* ContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC12F3A31C89924200F4C425 /* ContentTableViewCell.m */; };
+		CC60320B1C893975001FC946 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC60320A1C893975001FC946 /* ContentViewController.m */; };
 		CC97B56E1C804EE1004387D5 /* Contants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC97B56D1C804EE1004387D5 /* Contants.m */; };
 		CC9EBDA11C849097007BEDDE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9EBDA01C849097007BEDDE /* LoginViewController.m */; };
 		CCA600EC1C8086D7002AF9D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCA600EB1C8086D7002AF9D2 /* Assets.xcassets */; };
@@ -58,11 +64,22 @@
 		BC5C24A41C770D71003D6FE9 /* CourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseViewController.m; sourceTree = "<group>"; };
 		BC5C24A61C770D85003D6FE9 /* PersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
 		BC5C24A71C770D85003D6FE9 /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
+		CC12F3951C8952BA00F4C425 /* IndustryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndustryCollectionViewCell.h; sourceTree = "<group>"; };
+		CC12F3961C8952BA00F4C425 /* IndustryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndustryCollectionViewCell.m; sourceTree = "<group>"; };
+		CC12F3981C89551100F4C425 /* UtilMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilMethod.h; sourceTree = "<group>"; };
+		CC12F3991C89551100F4C425 /* UtilMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilMethod.m; sourceTree = "<group>"; };
+		CC12F39C1C89629600F4C425 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		CC12F39D1C89629600F4C425 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		CC12F39F1C8962BA00F4C425 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		CC12F3A21C89924200F4C425 /* ContentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentTableViewCell.h; sourceTree = "<group>"; };
+		CC12F3A31C89924200F4C425 /* ContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentTableViewCell.m; sourceTree = "<group>"; };
+		CC6032091C893975001FC946 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		CC60320A1C893975001FC946 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
 		CC97B56C1C804EE1004387D5 /* Contants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contants.h; sourceTree = "<group>"; };
 		CC97B56D1C804EE1004387D5 /* Contants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contants.m; sourceTree = "<group>"; };
 		CC9EBD9F1C849097007BEDDE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CC9EBDA01C849097007BEDDE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		CCA600EB1C8086D7002AF9D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CCA600EB1C8086D7002AF9D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		CCC6A0EC1C841F460017D874 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		CCC6A0ED1C841F460017D874 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		CCC6A0EE1C841F460017D874 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -103,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC12F3A01C8962BA00F4C425 /* libxml2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,10 +152,6 @@
 				BC5C241E1C76A026003D6FE9 /* Views */,
 				BC5C241B1C76A016003D6FE9 /* Models */,
 				BC5C241D1C76A021003D6FE9 /* Utils */,
-				BC5C241C1C76A01C003D6FE9 /* Resource */,
-				BC5C24161C76A00A003D6FE9 /* Categories */,
-				BC5C24091C769F8E003D6FE9 /* LaunchScreen.storyboard */,
-				CCA600EB1C8086D7002AF9D2 /* Assets.xcassets */,
 				BC5C23FB1C769F8E003D6FE9 /* Supporting Files */,
 			);
 			path = WeStudy;
@@ -157,15 +171,11 @@
 			children = (
 				BC5C24131C76A003003D6FE9 /* AppDelegate.h */,
 				BC5C24141C76A003003D6FE9 /* AppDelegate.m */,
+				BC5C24041C769F8E003D6FE9 /* Main.storyboard */,
+				CCA600EB1C8086D7002AF9D2 /* Assets.xcassets */,
+				BC5C24091C769F8E003D6FE9 /* LaunchScreen.storyboard */,
 			);
 			path = Application;
-			sourceTree = "<group>";
-		};
-		BC5C24161C76A00A003D6FE9 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Categories;
 			sourceTree = "<group>";
 		};
 		BC5C24171C76A011003D6FE9 /* Controllers */ = {
@@ -183,18 +193,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		BC5C241C1C76A01C003D6FE9 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
 		BC5C241D1C76A021003D6FE9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				CC97B56C1C804EE1004387D5 /* Contants.h */,
 				CC97B56D1C804EE1004387D5 /* Contants.m */,
+				CC12F3981C89551100F4C425 /* UtilMethod.h */,
+				CC12F3991C89551100F4C425 /* UtilMethod.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -202,6 +207,10 @@
 		BC5C241E1C76A026003D6FE9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CC12F3951C8952BA00F4C425 /* IndustryCollectionViewCell.h */,
+				CC12F3961C8952BA00F4C425 /* IndustryCollectionViewCell.m */,
+				CC12F3A21C89924200F4C425 /* ContentTableViewCell.h */,
+				CC12F3A31C89924200F4C425 /* ContentTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,7 +220,7 @@
 			children = (
 				CCD4C9211C87428A00657CA3 /* PersonalOtherButton */,
 				CCE4FC6D1C802D2C00A48A43 /* LoginAndRegister */,
-				BC5C24041C769F8E003D6FE9 /* Main.storyboard */,
+				CC6032081C893957001FC946 /* IndustryContent */,
 				BC5C241F1C76A1D7003D6FE9 /* RootViewController.h */,
 				BC5C24201C76A1D7003D6FE9 /* RootViewController.m */,
 				BC5C24A61C770D85003D6FE9 /* PersonalViewController.h */,
@@ -228,10 +237,38 @@
 			name = Main;
 			sourceTree = "<group>";
 		};
+		CC12F39B1C89629600F4C425 /* GData */ = {
+			isa = PBXGroup;
+			children = (
+				CC12F39C1C89629600F4C425 /* GDataXMLNode.h */,
+				CC12F39D1C89629600F4C425 /* GDataXMLNode.m */,
+			);
+			path = GData;
+			sourceTree = "<group>";
+		};
+		CC12F3A11C8962D200F4C425 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				CC12F39B1C89629600F4C425 /* GData */,
+				CCC6A0EB1C841F460017D874 /* AFNetworking */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		CC6032081C893957001FC946 /* IndustryContent */ = {
+			isa = PBXGroup;
+			children = (
+				CC6032091C893975001FC946 /* ContentViewController.h */,
+				CC60320A1C893975001FC946 /* ContentViewController.m */,
+			);
+			path = IndustryContent;
+			sourceTree = "<group>";
+		};
 		CC7F37A41C8196AD00BE44C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CCC6A0EB1C841F460017D874 /* AFNetworking */,
+				CC12F3A11C8962D200F4C425 /* ThirdParty */,
+				CC12F39F1C8962BA00F4C425 /* libxml2.tbd */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -373,18 +410,23 @@
 			files = (
 				CCC6A0FE1C841F460017D874 /* AFURLSessionManager.m in Sources */,
 				CCC6A0FB1C841F460017D874 /* AFSecurityPolicy.m in Sources */,
+				CC60320B1C893975001FC946 /* ContentViewController.m in Sources */,
 				BC5C24A21C770D5B003D6FE9 /* FrendsViewController.m in Sources */,
+				CC12F3A41C89924200F4C425 /* ContentTableViewCell.m in Sources */,
 				CCD4C9351C87428A00657CA3 /* SettingsViewController.m in Sources */,
 				CCD4C9331C87428A00657CA3 /* MultiMediaViewController.m in Sources */,
 				CCD4C9301C87428A00657CA3 /* FollowMajorViewController.m in Sources */,
 				CCD4C9311C87428A00657CA3 /* LeftDrawerViewController.m in Sources */,
+				CC12F3971C8952BA00F4C425 /* IndustryCollectionViewCell.m in Sources */,
 				CCC6A0FA1C841F460017D874 /* AFNetworkReachabilityManager.m in Sources */,
 				CCD4C9321C87428A00657CA3 /* LocationInnerViewController.m in Sources */,
 				BC5C249C1C770CB9003D6FE9 /* IndustryViewController.m in Sources */,
 				BC5C249F1C770D47003D6FE9 /* TrendsViewController.m in Sources */,
 				CCC6A0F91C841F460017D874 /* AFHTTPSessionManager.m in Sources */,
+				CC12F39A1C89551100F4C425 /* UtilMethod.m in Sources */,
 				BC5C24151C76A003003D6FE9 /* AppDelegate.m in Sources */,
 				CCE4FC691C8027E900A48A43 /* RegisterViewController.m in Sources */,
+				CC12F39E1C89629600F4C425 /* GDataXMLNode.m in Sources */,
 				CCD4C9361C87428A00657CA3 /* StarsViewController.m in Sources */,
 				BC5C24A51C770D71003D6FE9 /* CourseViewController.m in Sources */,
 				BC5C23FD1C769F8E003D6FE9 /* main.m in Sources */,
@@ -418,6 +460,7 @@
 				BC5C240A1C769F8E003D6FE9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -511,6 +554,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = WeStudy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -530,6 +574,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = WeStudy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
