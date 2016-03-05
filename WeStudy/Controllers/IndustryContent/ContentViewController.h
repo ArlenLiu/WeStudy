@@ -10,4 +10,9 @@
 
 @interface ContentViewController : UIViewController
 
+
+// collection 传过来的页码
+- (void)showPageIndex:(NSUInteger)pageIndex;
+
+
 @end

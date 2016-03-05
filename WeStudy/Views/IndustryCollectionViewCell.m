@@ -22,4 +22,9 @@
     return self;
 }
 
+// 重写 页码 属性赋值方法
+- (void)setPageIndex:(NSUInteger)pageIndex {
+    [self.contentVC showPageIndex:pageIndex];
+}
+
 @end

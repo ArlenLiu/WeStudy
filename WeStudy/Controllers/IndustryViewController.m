@@ -8,14 +8,14 @@
 
 #import "IndustryViewController.h"
 #import "Contants.h"
-#import "UtilMethod.h"
-#import "GDataXMLNode.h"
 #import "IndustryCollectionViewCell.h"
 
 #define BTN_START_TAG 888
 
 @interface IndustryViewController () <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 {
+    // 数据源
+    NSMutableArray *arrDataSource;
     // 顶部栏目数据源
     NSArray *arrColumnDataSource;
     // 当前页
@@ -40,6 +40,7 @@
     
     self.navigationItem.title = @"行业";
     
+    // 顶部分栏字体
     font_big = [UIFont systemFontOfSize:17];
     font_small = [UIFont systemFontOfSize:14];
     
@@ -47,7 +48,7 @@
     [self initData];
     
     // 网络读取数据
-    [self dataFromWeb];
+//    [self dataFromWeb];
     
     // 注册 collection cell
     [self registerCells];
@@ -64,7 +65,8 @@
     arrColumnDataSource = @[@"资讯",@"热点",@"博客",@"推荐"];
     // 顶部分栏数量
     numOfTopColumn = arrColumnDataSource.count;
-    
+    // 数据源
+    arrDataSource = [[NSMutableArray alloc] init];
 }
 
 // 顶部分栏
@@ -128,28 +130,6 @@
     }
 }
 
-// 开源中国接口 ZH_INFO -- 综合 - 资讯
-- (void)dataFromWeb {
-    AFHTTPSessionManager *manager = [UtilMethod managerHTTP];
-    [manager POST:ZH_INFO parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        // XML 解析 - 开源中国接口
-        [self parseXML:responseObject];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error:%@",error);
-    }];
-}
-
-// XML 解析 - 开源中国接口
-- (void)parseXML:(NSData *)dataXML {
-    GDataXMLDocument *xmlDoc = [[GDataXMLDocument alloc] initWithData:dataXML encoding:NSUTF8StringEncoding error:nil];
-    // 文档根节点元素
-    GDataXMLElement *rootElement = xmlDoc.rootElement;
-//    NSLog(@"%@",rootElement);
-    
-    
-    
-}
-
 #pragma mark - 代理协议方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return numOfTopColumn;
@@ -158,11 +138,15 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     IndustryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"content" forIndexPath:indexPath];
     
-//    cell.contentVC
-//    NSLog(@"%lu",(unsigned long)indexPath.row);
-    
+    // 传输当前页页码经 industry collection cell 到 contentVC
+    cell.pageIndex = indexPath.row;
     
     return cell;
+}
+
+// block 接收传输过来的页面
+- (void)receiveBlock:(void (^)(NSUInteger))block {
+    block(currentPage);
 }
 
 // tableview 初始顶部位置
