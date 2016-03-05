@@ -10,6 +10,10 @@
 #import "ContentTableViewCell.h"
 
 @interface ContentViewController () <UITableViewDataSource,UITableViewDelegate>
+{
+    // 数据源
+    NSMutableArray *arrDataSource;
+}
 
 // collection 的 cell 为当前文件，上面又有一个 tbv
 @property (weak, nonatomic) IBOutlet UITableView *tbv;
@@ -22,12 +26,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // 初始化数据源
+    arrDataSource = [[NSMutableArray alloc] init];
     
 }
 
 #pragma mark - 代理协议方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 20;
+//    return arrDataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 // 登陆界面 输入框 view 边框圆角直径
 #define LOGIN_CORNER 3
@@ -17,16 +18,19 @@
 #define WIDTH self.view.bounds.size.width
 #define HEIGHT self.view.bounds.size.height
 
+// APP 默认 蓝色值
+#define BlueDefault [UIColor colorWithRed:77/255.0 green:132/255.0 blue:241/255.0 alpha:1.0]
+
 // UITabBar 高度
 #define HEIGHT_TABBAR self.tabBarController.tabBar.frame.size.height
 
 // 高德地图 KEY
-extern NSString *const AMAP_KEY;
+extern NSString * const AMAP_KEY;
 
 // 本地登录接口
-extern NSString *const URL_LOGIN_LOCAL;
+extern NSString * const URL_LOGIN_LOCAL;
 // 互联网登录接口
-extern NSString *const URL_LOGIN_LGJ;
+extern NSString * const URL_LOGIN_LGJ;
 
 // OSChina开源中国接口：
 // 综合——资讯接口：http:

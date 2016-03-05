@@ -47,7 +47,7 @@
     
     // 分栏条背景色
 //    self.tabBarController.tabBar.barTintColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1.0];
-    self.tabBarController.tabBar.barTintColor = [UIColor colorWithRed:77/255.0 green:132/255.0 blue:241/255.0 alpha:1.0];
+    self.tabBarController.tabBar.barTintColor = BlueDefault;
     
     // Course -- 分栏正中间按钮
     UIButton *centerBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH / 2 - HEIGHT_TABBAR / 2, 0, HEIGHT_TABBAR, HEIGHT_TABBAR)];
@@ -70,7 +70,7 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     
     // 导航条背景色
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:77/255.0 green:132/255.0 blue:241/255.0 alpha:1.0];
+    self.navigationController.navigationBar.barTintColor = BlueDefault;
     
     UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(leftClick)];
     leftBarItem.tintColor = [UIColor whiteColor];
