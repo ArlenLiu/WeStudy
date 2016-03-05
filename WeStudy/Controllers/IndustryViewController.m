@@ -41,7 +41,7 @@
     self.navigationItem.title = @"行业";
     
     font_big = [UIFont systemFontOfSize:17];
-    font_small = [UIFont systemFontOfSize:14];;
+    font_small = [UIFont systemFontOfSize:14];
     
     // 初始化数据
     [self initData];
@@ -64,8 +64,10 @@
     arrColumnDataSource = @[@"资讯",@"热点",@"博客",@"推荐"];
     // 顶部分栏数量
     numOfTopColumn = arrColumnDataSource.count;
+    
 }
 
+// 顶部分栏
 - (void)showColumn {
     UIView *uv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, H_TOP_INDUSTRY)];
     [self.view addSubview:uv];
@@ -102,11 +104,14 @@
     // 点击导航条跳转到指定页面
     currentPage = btn.tag - BTN_START_TAG;
     [_collection setContentOffset:CGPointMake(currentPage * WIDTH, 0) animated:YES];
+    
+    // 点击 btn 滚动到指定的页面时，关闭 collection 的滚动效果，即不经过中间的页码，否则会加载中间页码
+    [_collection scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:currentPage inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
 }
 
 #pragma mark - scrollview 缓冲停下时
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    // 当前页
+    // 计算和记录当前页
     CGPoint pt = scrollView.contentOffset;
     currentPage = pt.x / self.view.frame.size.width;
     
@@ -152,7 +157,9 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     IndustryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"content" forIndexPath:indexPath];
+    
 //    cell.contentVC
+//    NSLog(@"%lu",(unsigned long)indexPath.row);
     
     
     return cell;
