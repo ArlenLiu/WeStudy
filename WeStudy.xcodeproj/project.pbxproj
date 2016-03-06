@@ -23,6 +23,8 @@
 		CC12F3A01C8962BA00F4C425 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC12F39F1C8962BA00F4C425 /* libxml2.tbd */; };
 		CC12F3A41C89924200F4C425 /* ContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC12F3A31C89924200F4C425 /* ContentTableViewCell.m */; };
 		CC60320B1C893975001FC946 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC60320A1C893975001FC946 /* ContentViewController.m */; };
+		CC7108E11C8C3A7D003C2C5F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC7108E01C8C3A7D003C2C5F /* WebKit.framework */; };
+		CC7108E41C8C5957003C2C5F /* DetailWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7108E31C8C5957003C2C5F /* DetailWebViewController.m */; };
 		CC97B56E1C804EE1004387D5 /* Contants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC97B56D1C804EE1004387D5 /* Contants.m */; };
 		CC9EBDA11C849097007BEDDE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9EBDA01C849097007BEDDE /* LoginViewController.m */; };
 		CCA05D2A1C8A9D82003CA50C /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA05D291C8A9D82003CA50C /* NewsModel.m */; };
@@ -96,6 +98,9 @@
 		CC12F3A31C89924200F4C425 /* ContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentTableViewCell.m; sourceTree = "<group>"; };
 		CC6032091C893975001FC946 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
 		CC60320A1C893975001FC946 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
+		CC7108E01C8C3A7D003C2C5F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		CC7108E21C8C5957003C2C5F /* DetailWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailWebViewController.h; sourceTree = "<group>"; };
+		CC7108E31C8C5957003C2C5F /* DetailWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailWebViewController.m; sourceTree = "<group>"; };
 		CC97B56C1C804EE1004387D5 /* Contants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contants.h; sourceTree = "<group>"; };
 		CC97B56D1C804EE1004387D5 /* Contants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contants.m; sourceTree = "<group>"; };
 		CC9EBD9F1C849097007BEDDE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -183,6 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC7108E11C8C3A7D003C2C5F /* WebKit.framework in Frameworks */,
 				CC12F3A01C8962BA00F4C425 /* libxml2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +328,8 @@
 			children = (
 				CC6032091C893975001FC946 /* ContentViewController.h */,
 				CC60320A1C893975001FC946 /* ContentViewController.m */,
+				CC7108E21C8C5957003C2C5F /* DetailWebViewController.h */,
+				CC7108E31C8C5957003C2C5F /* DetailWebViewController.m */,
 			);
 			path = IndustryContent;
 			sourceTree = "<group>";
@@ -331,6 +339,7 @@
 			children = (
 				CC12F3A11C8962D200F4C425 /* ThirdParty */,
 				CC12F39F1C8962BA00F4C425 /* libxml2.tbd */,
+				CC7108E01C8C3A7D003C2C5F /* WebKit.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -610,6 +619,7 @@
 				CCAF91C61C8AD29E00815592 /* MJRefreshHeader.m in Sources */,
 				CC12F39A1C89551100F4C425 /* UtilMethod.m in Sources */,
 				CCAF91C21C8AD29E00815592 /* MJRefreshAutoFooter.m in Sources */,
+				CC7108E41C8C5957003C2C5F /* DetailWebViewController.m in Sources */,
 				CCAF91D21C8AD29E00815592 /* UIScrollView+MJExtension.m in Sources */,
 				CCAF91C51C8AD29E00815592 /* MJRefreshFooter.m in Sources */,
 				BC5C24151C76A003003D6FE9 /* AppDelegate.m in Sources */,

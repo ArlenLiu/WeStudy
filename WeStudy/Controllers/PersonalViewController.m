@@ -49,7 +49,29 @@
     // storyboard 初始化
     self.storyMain = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
+    // 获取通知中心 -- 注销
+//    NSNotificationCenter *centerLogout = [NSNotificationCenter defaultCenter];
+//    [centerLogout addObserver:self selector:@selector(logoutCenter:) name:@"logout" object:nil];
     
+}
+
+// 接收通知 -- 注销
+- (void)logoutCenter:(NSNotificationCenter *)notice {
+    [self.userName setTitle:@"点击头像登录或注册" forState:UIControlStateNormal];
+    [self.studyData setTitle:@"" forState:UIControlStateNormal];
+    self.portraitView.image = [UIImage imageNamed:@"portrait0"];
+    
+    // 删除 NSUserDefaults 文件 -- 没用？
+    NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *pathUserDefaults = [NSString stringWithFormat:@"%@/Preferences/",libraryPath];
+    NSString *identifier  = [[NSBundle mainBundle] bundleIdentifier];
+    NSString *filePath = [pathUserDefaults stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",identifier]];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:filePath]) {
+        // 存在 NSUserDefaults 文件，删除之，退出登录
+        [fileManager removeItemAtPath:filePath error:nil];
+    }
+    NSLog(@"****%@",filePath);
 }
 
 // 登录成功后，刷新数据（由于从登录页面成功后到此页面是 dismiss 的，数据在那边刷新不了，在这里做）

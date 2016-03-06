@@ -43,12 +43,18 @@
     // 删除 NSUserDefaults 文件 -- 没用？
     NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *pathUserDefaults = [NSString stringWithFormat:@"%@/Preferences/",libraryPath];
-    NSString *filePath = [pathUserDefaults stringByAppendingPathComponent:@"com.arlen.WeStudy.plist"];
+    NSString *identifier  = [[NSBundle mainBundle] bundleIdentifier];
+    NSString *filePath = [pathUserDefaults stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",identifier]];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if ([fileManager fileExistsAtPath:filePath]) {
         // 存在 NSUserDefaults 文件，删除之，退出登录
         [fileManager removeItemAtPath:filePath error:nil];
     }
+    
+    // 发送当前页的通知 -- 注销账号
+    NSNotification *notice = [NSNotification notificationWithName:@"logout" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:notice];
+    
     // ?
     [self.navigationController popViewControllerAnimated:YES];
     

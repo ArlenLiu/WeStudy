@@ -169,6 +169,47 @@
             </objects>
             <point key="canvasLocation" x="171" y="1372"/>
         </scene>
+        <!--Detail Web View Controller-->
+        <scene sceneID="i9B-yG-vXr">
+            <objects>
+                <viewController id="NZU-5Q-DtR" customClass="DetailWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JIB-j0-03M"/>
+                        <viewControllerLayoutGuide type="bottom" id="U7n-nu-Hb1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HCh-tg-c1H">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3Q-gM-686">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcy-Xs-4DK">
+                                <rect key="frame" x="195" y="516" width="98" height="32"/>
+                                <color key="backgroundColor" red="1" green="0.63385474519999996" blue="0.36554020770000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="98" id="D44-k7-ZwE"/>
+                                    <constraint firstAttribute="height" constant="32" id="eJa-zX-0kj"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="U7n-nu-Hb1" firstAttribute="top" secondItem="f3Q-gM-686" secondAttribute="bottom" id="0Gb-e5-j8f"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lcy-Xs-4DK" secondAttribute="trailing" constant="11" id="0PY-3e-iaM"/>
+                            <constraint firstItem="f3Q-gM-686" firstAttribute="leading" secondItem="HCh-tg-c1H" secondAttribute="leadingMargin" constant="-20" id="KSv-lZ-grL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="f3Q-gM-686" secondAttribute="trailing" constant="-20" id="LmF-Ug-bHY"/>
+                            <constraint firstItem="f3Q-gM-686" firstAttribute="top" secondItem="HCh-tg-c1H" secondAttribute="topMargin" id="jjY-28-dSd"/>
+                            <constraint firstItem="U7n-nu-Hb1" firstAttribute="top" secondItem="Lcy-Xs-4DK" secondAttribute="bottom" constant="20" id="wnI-JL-fLc"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bSN-yI-Cfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="171" y="2012"/>
+        </scene>
         <!--动态-->
         <scene sceneID="vdK-Fp-A3h">
             <objects>
@@ -180,7 +221,7 @@
                     <view key="view" contentMode="scaleToFill" id="MGy-ZO-dtG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="动态" id="pLf-am-n1g"/>
                 </viewController>
@@ -211,7 +252,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="9y8-Lg-Wml"/>
                 </viewController>
@@ -230,7 +271,7 @@
                     <view key="view" contentMode="scaleToFill" id="vkg-Wx-d0f">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="学友" id="bxk-yw-6vp"/>
                 </viewController>
@@ -527,7 +568,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="l0Z-Vc-7dD" firstAttribute="leading" secondItem="5d6-3t-nSf" secondAttribute="leadingMargin" constant="-20" id="Hxc-74-Dbf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="l0Z-Vc-7dD" secondAttribute="trailing" constant="-20" id="adU-Ab-UtF"/>

@@ -9,7 +9,6 @@
 #import "ContentViewController.h"
 #import "ContentTableViewCell.h"
 #import "Contants.h"
-#import "GDataXMLNode.h"
 #import "UtilMethod.h"
 #import "NewsModel.h"
 #import "BlogModel.h"
@@ -26,9 +25,9 @@
     // 当前的页码 -- 刷新的页码
     int pageRefresh;
 }
-
 // collection 的 cell 为当前文件，上面又有一个 tbv
 @property (weak, nonatomic) IBOutlet UITableView *tbv;
+@property (nonatomic,strong) AFHTTPSessionManager *manager;
 
 @end
 
@@ -37,19 +36,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    // 初始化
+    [self initData];
     
+    // 下拉刷新、上拉加载 -- 获取通知中心单例对象
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    // 添加当前类对象为一个观察者，name 和 object 设置为 nil 表示接收一切通知
+    [center addObserver:self selector:@selector(configTable:) name:@"currentPage" object:nil];
+    
+}
+
+- (void)initData {
     // 初始化数据源
     arrDataSource = [[NSMutableArray alloc] init];
     arrURL = @[ZH_INFO,ZH_HOT,ZH_BLOG,ZH_RECOMMEND];
     // 刷新页码初始化
     pageRefresh = 1;
-    
-    // 下拉刷新、上拉加载
-    // 获取通知中心单例对象
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    // 添加当前类对象为一个观察者，name 和 object 设置为 nil 表示接收一切通知
-    [center addObserver:self selector:@selector(configTable:) name:@"currentPage" object:nil];
-    
+    _manager = [UtilMethod managerHTTP];
 }
 
 // 下拉刷新、上拉加载
@@ -62,7 +65,6 @@
         pageRefresh = 1;
         // 重写读取数据显示
         [arrDataSource removeAllObjects];
-        // 重新读取数据
         [self showPageIndex:pageIndex];
         
     }];
@@ -72,7 +74,6 @@
     self.tbv.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         // 上拉加载更多
         pageRefresh ++;
-        // 读取数据
         [self showPageIndex:pageIndex];
     }];
 }
@@ -91,7 +92,6 @@
     [[NSNotificationCenter defaultCenter] postNotification:notice];
     
     // pageIndex 为 0、1 的接口跟 2、3 的不太一样
-    
     // 资讯、热点
     if (pageIndex == 0 || pageIndex == 1) {
         [self requestNews:pageIndex];
@@ -103,34 +103,36 @@
 }
 
 - (void)requestNews:(NSUInteger)pageIndex {
-    AFHTTPSessionManager *manager = [UtilMethod managerHTTP];
-    [manager POST:arrURL[pageIndex] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        GDataXMLDocument *xmlDoc = [[GDataXMLDocument alloc] initWithData:responseObject encoding:NSUTF8StringEncoding error:nil];
+    [_manager POST:arrURL[pageIndex] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        _xmlDoc = [[GDataXMLDocument alloc] initWithData:responseObject encoding:NSUTF8StringEncoding error:nil];
         // 文档根节点元素
-        GDataXMLElement *rootElement = xmlDoc.rootElement;
-        NSArray *arrForNewsList = [rootElement elementsForName:@"newslist"];
-        GDataXMLElement *newsEle = arrForNewsList[0];
-        NSArray *arrForNews = [newsEle elementsForName:@"news"];
-        // news 中有 20 个元素
-        for (int i = 0; i < arrForNews.count; i ++) {
-            GDataXMLElement *news = arrForNews[i];
-            NSArray *arrTitle = [news elementsForName:@"title"];    // title 中只有一个 node 节点元素
-            GDataXMLNode *nodeTitle = arrTitle[0];
-            NSArray *arrBody = [news elementsForName:@"body"];  // body
-            GDataXMLNode *nodeBody = arrBody[0];
-            NSArray *arrAuthor = [news elementsForName:@"author"];  // author
-            GDataXMLNode *nodeAuthor = arrAuthor[0];
-            NSArray *arrPubDate = [news elementsForName:@"pubDate"];    // pubDate
-            GDataXMLNode *nodePubDate = arrPubDate[0];
-            NewsModel *newsModel = [[NewsModel alloc] init];    // 建立模型
-            newsModel.title = nodeTitle.stringValue;
-            newsModel.body = nodeBody.stringValue;
-            newsModel.author = nodeAuthor.stringValue;
-            newsModel.pubDate = nodePubDate.stringValue;
+        _rootElement = _xmlDoc.rootElement;
+        _arrForNewsList = [_rootElement elementsForName:@"newslist"];   // news -- 20 个元素
+        _newsEle = _arrForNewsList[0];
+        _arrForNews = [_newsEle elementsForName:@"news"];
+        for (int i = 0; i < _arrForNews.count; i ++) {
+            _news = _arrForNews[i];
+            _arrTitle = [_news elementsForName:@"title"];    // title 中只有一个 node 节点元素
+            _nodeTitle = _arrTitle[0];
+            _arrBody = [_news elementsForName:@"body"];
+            _nodeBody = _arrBody[0];
+            _arrAuthor = [_news elementsForName:@"author"];
+            _nodeAuthor = _arrAuthor[0];
+            _arrPubDate = [_news elementsForName:@"pubDate"];
+            _nodePubDate = _arrPubDate[0];
+            _arrID = [_news elementsForName:@"id"];
+            _nodeID = _arrID[0];
+            
+            NewsModel *newsModel = [[NewsModel alloc] init];
+            newsModel.title = _nodeTitle.stringValue;
+            newsModel.body = _nodeBody.stringValue;
+            newsModel.author = _nodeAuthor.stringValue;
+            newsModel.pubDate = _nodePubDate.stringValue;
+            newsModel.id_detail = _nodeID.stringValue.intValue;
             // 加入到数据源中
             [arrDataSource addObject:newsModel];
         }
-        // 刷新 tableview，表格加载完毕，结束刷新 **** 刷新 tableview，不然没有数据
+        // 刷新 tableview，表格加载完毕，结束刷新
          [self reloadAndRefresh];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -139,30 +141,32 @@
 }
 
 - (void)requestBlog:(NSUInteger)pageIndex {
-    AFHTTPSessionManager *manager = [UtilMethod managerHTTP];
-    [manager POST:arrURL[pageIndex] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        GDataXMLDocument *xmlDoc = [[GDataXMLDocument alloc] initWithData:responseObject encoding:NSUTF8StringEncoding error:nil];
+    [_manager POST:arrURL[pageIndex] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        _xmlDoc = [[GDataXMLDocument alloc] initWithData:responseObject encoding:NSUTF8StringEncoding error:nil];
         // 文档根节点元素
-        GDataXMLElement *rootElement = xmlDoc.rootElement;
-        NSArray *arrForNewsList = [rootElement elementsForName:@"blogs"];
-        GDataXMLElement *newsEle = arrForNewsList[0];
-        NSArray *arrForNews = [newsEle elementsForName:@"blog"];
-        // blog
-        for (int i = 0; i < arrForNews.count; i ++) {
-            GDataXMLElement *news = arrForNews[i];
-            NSArray *arrTitle = [news elementsForName:@"title"];    // title 中只有一个 node 节点元素
-            GDataXMLNode *nodeTitle = arrTitle[0];
-            NSArray *arrBody = [news elementsForName:@"body"];  // body
-            GDataXMLNode *nodeBody = arrBody[0];
-            NSArray *arrAuthor = [news elementsForName:@"authorname"];  // author
-            GDataXMLNode *nodeAuthorName = arrAuthor[0];
-            NSArray *arrPubDate = [news elementsForName:@"pubDate"];    // pubDate
-            GDataXMLNode *nodePubDate = arrPubDate[0];
-            BlogModel *blogModel = [[BlogModel alloc] init];    // 建立模型
-            blogModel.title = nodeTitle.stringValue;
-            blogModel.body = nodeBody.stringValue;
-            blogModel.authorname = nodeAuthorName.stringValue;
-            blogModel.pubDate = nodePubDate.stringValue;
+        _rootElement = _xmlDoc.rootElement;
+        _arrForNewsList = [_rootElement elementsForName:@"blogs"];  // blog -- 20
+        _newsEle = _arrForNewsList[0];
+        _arrForNews = [_newsEle elementsForName:@"blog"];
+        for (int i = 0; i < _arrForNews.count; i ++) {
+            _news = _arrForNews[i];
+            _arrTitle = [_news elementsForName:@"title"];
+            _nodeTitle = _arrTitle[0];
+            _arrBody = [_news elementsForName:@"body"];
+            _nodeBody = _arrBody[0];
+            _arrAuthor = [_news elementsForName:@"authorname"];  // authorname
+            _nodeAuthor = _arrAuthor[0];
+            _arrPubDate = [_news elementsForName:@"pubDate"];
+            _nodePubDate = _arrPubDate[0];
+            _arrID = [_news elementsForName:@"id"];
+            _nodeID = _arrID[0];
+            
+            BlogModel *blogModel = [[BlogModel alloc] init];
+            blogModel.title = _nodeTitle.stringValue;
+            blogModel.body = _nodeBody.stringValue;
+            blogModel.authorname = _nodeAuthor.stringValue;
+            blogModel.pubDate = _nodePubDate.stringValue;
+            blogModel.id_detail = _nodeID.stringValue.intValue;
             // 加入到数据源中
             [arrDataSource addObject:blogModel];
         }
@@ -184,9 +188,9 @@
     return arrDataSource.count;
 }
 
+// 添加数据，判断 数据源 是 news_list 还是 blog_list 的子类，即判断是来自哪个模型（0、1，2、3）
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contentTable" forIndexPath:indexPath];
-    // 添加数据，判断 数据源 是 news_list 还是 blog_list 的子类，即判断是来自哪个模型（0、1，2、3）
     if (arrDataSource.count > 0) {
         if ([arrDataSource[0] isMemberOfClass:[NewsModel class]]) {
             NewsModel *newsModel = arrDataSource[indexPath.row];
@@ -201,9 +205,16 @@
             cell.author.text = [NSString stringWithFormat:@"%@  %@",blogModel.authorname,blogModel.pubDate];
         }
     }
-    
     return cell;
 }
+
+// 行点击跳转到详细页
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // id_detail
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

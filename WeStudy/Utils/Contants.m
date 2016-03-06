@@ -16,7 +16,13 @@ NSString * const URL_LOGIN_LOCAL = @"http://localhost/westudy/loginios.php";
 NSString * const URL_LOGIN_LGJ = @"http://www.liugangjian.com/loginios.php";
 
 // OSChina开源中国接口：
-// 综合——资讯接口：            缺少 http:// 会报错不支持的URL
+// 综合 news_list 根接口，具体文章在后面传参 id=
+NSString * const NEWS_DETAIL = @"http://www.oschina.net/action/api/news_detail";
+
+// 综合 blog_list 根接口，具体文章在后面传参 id=
+NSString * const BLOG_DETAIL = @"http://www.oschina.net/action/api/blog_detail";
+
+// 综合——资讯接口：
 NSString * const ZH_INFO = @"http://www.oschina.net/action/api/news_list?catalog=1&pageIndex=0&pageSize=20";
 
 // 综合——热点接口：

@@ -35,7 +35,14 @@ extern NSString * const URL_LOGIN_LOCAL;
 extern NSString * const URL_LOGIN_LGJ;
 
 // OSChina开源中国接口：
-// 综合——资讯接口：http:
+
+// 综合 news_list 详细页接口
+extern NSString * const NEWS_DETAIL;
+
+// 综合 blog_list 根接口
+extern NSString * const BLOG_DETAIL;
+
+// 综合——资讯接口：
 extern NSString * const ZH_INFO;
 
 // 综合——热点接口：

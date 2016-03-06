@@ -10,6 +10,7 @@
 
 @interface BlogModel : NSObject
 
+@property (nonatomic,assign) NSInteger id_detail;
 @property (nonatomic,strong) NSString *title;
 @property (nonatomic,strong) NSString *body;
 @property (nonatomic,strong) NSString *url;
