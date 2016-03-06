@@ -10,8 +10,8 @@
 
 @interface ContentTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *lbTitle;
-@property (weak, nonatomic) IBOutlet UILabel *lbSubTitle;
-@property (weak, nonatomic) IBOutlet UILabel *lbDescrible;
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *body;
+@property (weak, nonatomic) IBOutlet UILabel *author;
 
 @end

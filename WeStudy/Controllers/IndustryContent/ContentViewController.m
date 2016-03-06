@@ -13,6 +13,7 @@
 #import "UtilMethod.h"
 #import "NewsModel.h"
 #import "BlogModel.h"
+#import "MJRefresh.h"
 
 @interface ContentViewController () <UITableViewDataSource,UITableViewDelegate>
 {
@@ -22,6 +23,8 @@
     NSArray *arrURL;
     // 当前栏目标识，若栏目已经过滑动换成其他栏目，则数据源需清空
     NSUInteger currentPage;
+    // 当前的页码 -- 刷新的页码
+    int pageRefresh;
 }
 
 // collection 的 cell 为当前文件，上面又有一个 tbv
@@ -38,7 +41,40 @@
     // 初始化数据源
     arrDataSource = [[NSMutableArray alloc] init];
     arrURL = @[ZH_INFO,ZH_HOT,ZH_BLOG,ZH_RECOMMEND];
+    // 刷新页码初始化
+    pageRefresh = 1;
     
+    // 下拉刷新、上拉加载
+    // 获取通知中心单例对象
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    // 添加当前类对象为一个观察者，name 和 object 设置为 nil 表示接收一切通知
+    [center addObserver:self selector:@selector(configTable:) name:@"currentPage" object:nil];
+    
+}
+
+// 下拉刷新、上拉加载
+- (void)configTable:(NSNotification *)noice {
+    NSInteger pageIndex = [[noice.userInfo objectForKey:@"pageIndex"] intValue];
+    
+    // 配置 header
+    MJRefreshNormalHeader *refreshHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        // 下拉刷新的方法
+        pageRefresh = 1;
+        // 重写读取数据显示
+        [arrDataSource removeAllObjects];
+        // 重新读取数据
+        [self showPageIndex:pageIndex];
+        
+    }];
+    [refreshHeader setTitle:@"下拉刷新" forState:MJRefreshStatePulling];
+    self.tbv.mj_header = refreshHeader; // 先把 header 配置好了，再赋值给 tbv 的 header
+    
+    self.tbv.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        // 上拉加载更多
+        pageRefresh ++;
+        // 读取数据
+        [self showPageIndex:pageIndex];
+    }];
 }
 
 // 得到页码，网络获取相应页码的接口，解析之 -- 开源中国接口解析
@@ -50,83 +86,97 @@
     //更新当前栏目
     currentPage = pageIndex;
     
+    // 发送当前页的通知，用来做下拉刷新、上拉加载，创建消息对象发送消息
+    NSNotification *notice = [NSNotification notificationWithName:@"currentPage" object:nil userInfo:@{@"pageIndex":[NSString stringWithFormat:@"%lu",(unsigned long)pageIndex]}];
+    [[NSNotificationCenter defaultCenter] postNotification:notice];
+    
     // pageIndex 为 0、1 的接口跟 2、3 的不太一样
-    AFHTTPSessionManager *manager = [UtilMethod managerHTTP];
     
     // 资讯、热点
     if (pageIndex == 0 || pageIndex == 1) {
-        [manager POST:arrURL[pageIndex] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            GDataXMLDocument *xmlDoc = [[GDataXMLDocument alloc] initWithData:responseObject encoding:NSUTF8StringEncoding error:nil];
-            // 文档根节点元素
-            GDataXMLElement *rootElement = xmlDoc.rootElement;
-            NSArray *arrForNewsList = [rootElement elementsForName:@"newslist"];
-            GDataXMLElement *newsEle = arrForNewsList[0];
-            NSArray *arrForNews = [newsEle elementsForName:@"news"];
-            
-            // news 中有 20 个元素
-            for (int i = 0; i < arrForNews.count; i ++) {
-                GDataXMLElement *news = arrForNews[i];
-                // title 中只有一个 node 节点元素
-                NSArray *arrTitle = [news elementsForName:@"title"];
-                GDataXMLNode *nodeTitle = arrTitle[0];
-                // body
-                NSArray *arrBody = [news elementsForName:@"body"];
-                GDataXMLNode *nodeBody = arrBody[0];
-                // author
-                NSArray *arrAuthor = [news elementsForName:@"author"];
-                GDataXMLNode *nodeAuthor = arrAuthor[0];
-                
-                NewsModel *newsModel = [[NewsModel alloc] init];
-                newsModel.title = nodeTitle.stringValue;
-                newsModel.body = nodeBody.stringValue;
-                newsModel.author = nodeAuthor.stringValue;
-                // 加入到数据源中
-                [arrDataSource addObject:newsModel];
-            }
-            // **** 刷新 tableview，不然没有数据
-            [self.tbv reloadData];
-            
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"error:%@",error);
-        }];
+        [self requestNews:pageIndex];
     }
     // 博客、推荐
     else {
-        [manager POST:arrURL[pageIndex] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            GDataXMLDocument *xmlDoc = [[GDataXMLDocument alloc] initWithData:responseObject encoding:NSUTF8StringEncoding error:nil];
-            // 文档根节点元素
-            GDataXMLElement *rootElement = xmlDoc.rootElement;
-            NSArray *arrForNewsList = [rootElement elementsForName:@"blogs"];
-            GDataXMLElement *newsEle = arrForNewsList[0];
-            NSArray *arrForNews = [newsEle elementsForName:@"blog"];
-            
-            // blog
-            for (int i = 0; i < arrForNews.count; i ++) {
-                GDataXMLElement *news = arrForNews[i];
-                // title 中只有一个 node 节点元素
-                NSArray *arrTitle = [news elementsForName:@"title"];
-                GDataXMLNode *nodeTitle = arrTitle[0];
-                // body
-                NSArray *arrBody = [news elementsForName:@"body"];
-                GDataXMLNode *nodeBody = arrBody[0];
-                // author
-                NSArray *arrAuthor = [news elementsForName:@"authorname"];
-                GDataXMLNode *nodeAuthorName = arrAuthor[0];
-                
-                BlogModel *blogModel = [[BlogModel alloc] init];
-                blogModel.title = nodeTitle.stringValue;
-                blogModel.body = nodeBody.stringValue;
-                blogModel.authorname = nodeAuthorName.stringValue;
-                // 加入到数据源中
-                [arrDataSource addObject:blogModel];
-            }
-            // 刷新 tableview
-            [self.tbv reloadData];
-            
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"error:%@",error);
-        }];
+        [self requestBlog:pageIndex];
     }
+}
+
+- (void)requestNews:(NSUInteger)pageIndex {
+    AFHTTPSessionManager *manager = [UtilMethod managerHTTP];
+    [manager POST:arrURL[pageIndex] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        GDataXMLDocument *xmlDoc = [[GDataXMLDocument alloc] initWithData:responseObject encoding:NSUTF8StringEncoding error:nil];
+        // 文档根节点元素
+        GDataXMLElement *rootElement = xmlDoc.rootElement;
+        NSArray *arrForNewsList = [rootElement elementsForName:@"newslist"];
+        GDataXMLElement *newsEle = arrForNewsList[0];
+        NSArray *arrForNews = [newsEle elementsForName:@"news"];
+        // news 中有 20 个元素
+        for (int i = 0; i < arrForNews.count; i ++) {
+            GDataXMLElement *news = arrForNews[i];
+            NSArray *arrTitle = [news elementsForName:@"title"];    // title 中只有一个 node 节点元素
+            GDataXMLNode *nodeTitle = arrTitle[0];
+            NSArray *arrBody = [news elementsForName:@"body"];  // body
+            GDataXMLNode *nodeBody = arrBody[0];
+            NSArray *arrAuthor = [news elementsForName:@"author"];  // author
+            GDataXMLNode *nodeAuthor = arrAuthor[0];
+            NSArray *arrPubDate = [news elementsForName:@"pubDate"];    // pubDate
+            GDataXMLNode *nodePubDate = arrPubDate[0];
+            NewsModel *newsModel = [[NewsModel alloc] init];    // 建立模型
+            newsModel.title = nodeTitle.stringValue;
+            newsModel.body = nodeBody.stringValue;
+            newsModel.author = nodeAuthor.stringValue;
+            newsModel.pubDate = nodePubDate.stringValue;
+            // 加入到数据源中
+            [arrDataSource addObject:newsModel];
+        }
+        // 刷新 tableview，表格加载完毕，结束刷新 **** 刷新 tableview，不然没有数据
+         [self reloadAndRefresh];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error:%@",error);
+    }];
+}
+
+- (void)requestBlog:(NSUInteger)pageIndex {
+    AFHTTPSessionManager *manager = [UtilMethod managerHTTP];
+    [manager POST:arrURL[pageIndex] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        GDataXMLDocument *xmlDoc = [[GDataXMLDocument alloc] initWithData:responseObject encoding:NSUTF8StringEncoding error:nil];
+        // 文档根节点元素
+        GDataXMLElement *rootElement = xmlDoc.rootElement;
+        NSArray *arrForNewsList = [rootElement elementsForName:@"blogs"];
+        GDataXMLElement *newsEle = arrForNewsList[0];
+        NSArray *arrForNews = [newsEle elementsForName:@"blog"];
+        // blog
+        for (int i = 0; i < arrForNews.count; i ++) {
+            GDataXMLElement *news = arrForNews[i];
+            NSArray *arrTitle = [news elementsForName:@"title"];    // title 中只有一个 node 节点元素
+            GDataXMLNode *nodeTitle = arrTitle[0];
+            NSArray *arrBody = [news elementsForName:@"body"];  // body
+            GDataXMLNode *nodeBody = arrBody[0];
+            NSArray *arrAuthor = [news elementsForName:@"authorname"];  // author
+            GDataXMLNode *nodeAuthorName = arrAuthor[0];
+            NSArray *arrPubDate = [news elementsForName:@"pubDate"];    // pubDate
+            GDataXMLNode *nodePubDate = arrPubDate[0];
+            BlogModel *blogModel = [[BlogModel alloc] init];    // 建立模型
+            blogModel.title = nodeTitle.stringValue;
+            blogModel.body = nodeBody.stringValue;
+            blogModel.authorname = nodeAuthorName.stringValue;
+            blogModel.pubDate = nodePubDate.stringValue;
+            // 加入到数据源中
+            [arrDataSource addObject:blogModel];
+        }
+        // 刷新 tableview，表格加载完毕，结束刷新
+        [self reloadAndRefresh];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error:%@",error);
+    }];
+}
+
+- (void)reloadAndRefresh {
+    [self.tbv reloadData];
+    [self.tbv.mj_header endRefreshing];
+    [self.tbv.mj_footer endRefreshing];
 }
 
 #pragma mark - 代理协议方法
@@ -137,17 +187,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contentTable" forIndexPath:indexPath];
     // 添加数据，判断 数据源 是 news_list 还是 blog_list 的子类，即判断是来自哪个模型（0、1，2、3）
-    if ([arrDataSource[0] isMemberOfClass:[NewsModel class]]) {
-        NewsModel *newsModel = arrDataSource[indexPath.row];
-        cell.lbTitle.text = newsModel.title;
-        cell.lbSubTitle.text = newsModel.body;
-        cell.lbDescrible.text = newsModel.author;
-    }
-    if ([arrDataSource[0] isMemberOfClass:[BlogModel class]]) {
-        BlogModel *blogModel = arrDataSource[indexPath.row];
-        cell.lbTitle.text = blogModel.title;
-        cell.lbSubTitle.text = blogModel.body;
-        cell.lbDescrible.text = blogModel.authorname;
+    if (arrDataSource.count > 0) {
+        if ([arrDataSource[0] isMemberOfClass:[NewsModel class]]) {
+            NewsModel *newsModel = arrDataSource[indexPath.row];
+            cell.title.text = newsModel.title;
+            cell.body.text = newsModel.body;
+            cell.author.text = [NSString stringWithFormat:@"%@  %@",newsModel.author,newsModel.pubDate];
+        }
+        if ([arrDataSource[0] isMemberOfClass:[BlogModel class]]) {
+            BlogModel *blogModel = arrDataSource[indexPath.row];
+            cell.title.text = blogModel.title;
+            cell.body.text = blogModel.body;
+            cell.author.text = [NSString stringWithFormat:@"%@  %@",blogModel.authorname,blogModel.pubDate];
+        }
     }
     
     return cell;

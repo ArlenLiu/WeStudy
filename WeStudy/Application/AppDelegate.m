@@ -19,10 +19,14 @@
     // Override point for customization after application launch.
     
     // 设置起始页启动停留时间
-//    [NSThread sleepForTimeInterval:0.0];
+//    [NSThread sleepForTimeInterval:3.0];
     
     // 隐藏 navigationbar 下划线
 //    [self hideNaviUnderline];
+    
+    // 设置 tabbar 的选择状态和未选择状态颜色
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:10.0f],NSForegroundColorAttributeName : [UIColor whiteColor]} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:10.0f], NSForegroundColorAttributeName : [UIColor colorWithRed:190/255.0 green:190/255.0 blue:190/255.0 alpha:1.0]} forState:UIControlStateNormal];
     
     return YES;
 }

@@ -17,7 +17,7 @@
 #import "MultiMediaViewController.h"
 #import "MaterialStoreViewController.h"
 
-@interface PersonalViewController () <UIActionSheetDelegate>
+@interface PersonalViewController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *portraitView;
 
@@ -50,9 +50,6 @@
     self.storyMain = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     
-    // 注销功能、账号切换功能
-    
-    
 }
 
 // 登录成功后，刷新数据（由于从登录页面成功后到此页面是 dismiss 的，数据在那边刷新不了，在这里做）
@@ -82,7 +79,6 @@
                 [data writeToFile:pathOfPortrait atomically:YES];   // !!! 路径
             }];
         }
-        
         // 测试
 //        NSLog(@"%@",pathOfPortrait);
 //        NSLog(@"%@",[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0]);
@@ -108,7 +104,30 @@
 
 // 修改头像的协议方法
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    ///////////////// 待完成 ////////////////////
+    if (buttonIndex == 0) {
+        // 拍照
+        // 创建 UIImagePickerController 图片选择器
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        // 指定其代理对象 -- 需要指定两个协议
+        picker.delegate = self;
+        // 设置资源类型，打开相机，图片的来源来自拍摄照片
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        // 显示，模态方式
+        [self presentViewController:picker animated:YES completion:nil];
+    }else if (buttonIndex == 1) {
+        // 相册
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        [self presentViewController:picker animated:YES completion:nil];
+    }
+    // buttonIndex == 2 为取消
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    ////
+    NSLog(@"%@",info);
 }
 
 // navigation 右侧设置按钮
