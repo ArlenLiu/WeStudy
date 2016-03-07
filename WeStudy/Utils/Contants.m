@@ -8,8 +8,10 @@
 
 #import "Contants.h"
 
-// 高德地图 KEY
-NSString * const AMAP_KEY = @"fd144f4d4f1f16445db2cd8c38aa661f";
+// 高德地图 KEY com.arlenly.WeStudy
+NSString * const AMAP_KEY_LY = @"fd144f4d4f1f16445db2cd8c38aa661f";
+// com.arlen.WeStudy
+NSString * const AMAP_KEY = @"ef8db51df90f01e69130dad8cfe36649";
 
 // 登录接口
 NSString * const URL_LOGIN_LOCAL = @"http://localhost/westudy/loginios.php";

@@ -55,6 +55,7 @@
     
     // 顶部栏目
     [self showColumn];
+    
 }
 
 - (void)registerCells {

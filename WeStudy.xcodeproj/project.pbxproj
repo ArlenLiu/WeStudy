@@ -71,6 +71,11 @@
 		CCDFF6201C8D269F00623E60 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCDFF61F1C8D269F00623E60 /* AddressBook.framework */; };
 		CCE4FC691C8027E900A48A43 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE4FC681C8027E900A48A43 /* RegisterViewController.m */; };
 		CCE4FC6C1C802C4300A48A43 /* UpdatePWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE4FC6B1C802C4300A48A43 /* UpdatePWDViewController.m */; };
+		CCFF90C31C8DAA7900114E73 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFF90C21C8DAA7900114E73 /* libz.tbd */; };
+		CCFF90C51C8DAA8300114E73 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFF90C41C8DAA8300114E73 /* CoreLocation.framework */; };
+		CCFF90C71C8DAB6900114E73 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFF90C61C8DAB6900114E73 /* libstdc++.6.0.9.tbd */; };
+		CCFF90D01C8DABC200114E73 /* indoor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCFF90CE1C8DABC200114E73 /* indoor.bundle */; };
+		CCFF90D11C8DABC200114E73 /* libIndoorMapLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFF90CF1C8DABC200114E73 /* libIndoorMapLib.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -197,6 +202,16 @@
 		CCE4FC681C8027E900A48A43 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		CCE4FC6A1C802C4300A48A43 /* UpdatePWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdatePWDViewController.h; sourceTree = "<group>"; };
 		CCE4FC6B1C802C4300A48A43 /* UpdatePWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdatePWDViewController.m; sourceTree = "<group>"; };
+		CCFF90C21C8DAA7900114E73 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		CCFF90C41C8DAA8300114E73 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CCFF90C61C8DAB6900114E73 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		CCFF90C91C8DABC200114E73 /* IndoorDataManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndoorDataManger.h; sourceTree = "<group>"; };
+		CCFF90CA1C8DABC200114E73 /* IndoorFloorHBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndoorFloorHBar.h; sourceTree = "<group>"; };
+		CCFF90CB1C8DABC200114E73 /* IndoorMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndoorMapView.h; sourceTree = "<group>"; };
+		CCFF90CC1C8DABC200114E73 /* IndoorRouteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndoorRouteRequest.h; sourceTree = "<group>"; };
+		CCFF90CD1C8DABC200114E73 /* IndoorSearchEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndoorSearchEngine.h; sourceTree = "<group>"; };
+		CCFF90CE1C8DABC200114E73 /* indoor.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = indoor.bundle; sourceTree = "<group>"; };
+		CCFF90CF1C8DABC200114E73 /* libIndoorMapLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libIndoorMapLib.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,10 +219,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCFF90C71C8DAB6900114E73 /* libstdc++.6.0.9.tbd in Frameworks */,
+				CCFF90C51C8DAA8300114E73 /* CoreLocation.framework in Frameworks */,
+				CCFF90C31C8DAA7900114E73 /* libz.tbd in Frameworks */,
 				CCAA07531C8D897300393F15 /* MediaPlayer.framework in Frameworks */,
 				CCDFF6201C8D269F00623E60 /* AddressBook.framework in Frameworks */,
 				CC7108E11C8C3A7D003C2C5F /* WebKit.framework in Frameworks */,
 				CC12F3A01C8962BA00F4C425 /* libxml2.tbd in Frameworks */,
+				CCFF90D11C8DABC200114E73 /* libIndoorMapLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +356,7 @@
 		CC12F3A11C8962D200F4C425 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				CCFF90D21C8DABCA00114E73 /* AMAPIndoor */,
 				CCAF91951C8AD29E00815592 /* MJRefresh */,
 				CC12F39B1C89629600F4C425 /* GData */,
 				CCC6A0EB1C841F460017D874 /* AFNetworking */,
@@ -360,6 +380,9 @@
 			children = (
 				CC12F3A11C8962D200F4C425 /* ThirdParty */,
 				CC12F39F1C8962BA00F4C425 /* libxml2.tbd */,
+				CCFF90C21C8DAA7900114E73 /* libz.tbd */,
+				CCFF90C61C8DAB6900114E73 /* libstdc++.6.0.9.tbd */,
+				CCFF90C41C8DAA8300114E73 /* CoreLocation.framework */,
 				CCAA07521C8D897300393F15 /* MediaPlayer.framework */,
 				CCDFF61F1C8D269F00623E60 /* AddressBook.framework */,
 				CC7108E01C8C3A7D003C2C5F /* WebKit.framework */,
@@ -567,6 +590,28 @@
 			name = LoginAndRegister;
 			sourceTree = "<group>";
 		};
+		CCFF90C81C8DABC200114E73 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				CCFF90C91C8DABC200114E73 /* IndoorDataManger.h */,
+				CCFF90CA1C8DABC200114E73 /* IndoorFloorHBar.h */,
+				CCFF90CB1C8DABC200114E73 /* IndoorMapView.h */,
+				CCFF90CC1C8DABC200114E73 /* IndoorRouteRequest.h */,
+				CCFF90CD1C8DABC200114E73 /* IndoorSearchEngine.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		CCFF90D21C8DABCA00114E73 /* AMAPIndoor */ = {
+			isa = PBXGroup;
+			children = (
+				CCFF90C81C8DABC200114E73 /* include */,
+				CCFF90CE1C8DABC200114E73 /* indoor.bundle */,
+				CCFF90CF1C8DABC200114E73 /* libIndoorMapLib.a */,
+			);
+			name = AMAPIndoor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -637,6 +682,7 @@
 				CCA600EC1C8086D7002AF9D2 /* Assets.xcassets in Resources */,
 				CCAF91D01C8AD29E00815592 /* MJRefresh.bundle in Resources */,
 				BC5C24061C769F8E003D6FE9 /* Main.storyboard in Resources */,
+				CCFF90D01C8DABC200114E73 /* indoor.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,11 +864,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = WeStudy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WeStudy/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arlenly.WeStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -835,11 +885,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = WeStudy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WeStudy/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arlenly.WeStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

@@ -59,7 +59,7 @@
         
         MusicListModel *music = [[MusicListModel alloc] init];
         music.title = songTitle;
-        music.artist = songArtist
+        music.artist = songArtist;
         [arrDataSource addObject:music];
     }
 }
@@ -81,6 +81,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
 }
 
 - (void)didReceiveMemoryWarning {

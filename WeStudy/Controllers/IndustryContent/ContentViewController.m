@@ -45,6 +45,7 @@
     // 添加当前类对象为一个观察者，name 和 object 设置为 nil 表示接收一切通知
     [center addObserver:self selector:@selector(configTable:) name:@"currentPage" object:nil];
     
+    
 }
 
 - (void)initData {

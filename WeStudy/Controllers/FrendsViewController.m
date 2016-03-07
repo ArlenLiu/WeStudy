@@ -9,6 +9,7 @@
 #import "FrendsViewController.h"
 #import <AddressBook/AddressBook.h>
 #import "FriendDetailViewController.h"
+#import "Contants.h"
 //#import "AddressBookModel.h"
 //#import <AddressBookUI/AddressBookUI.h>
 
@@ -39,7 +40,7 @@
     // 初始化数据源
     arrDataSource = [[NSMutableArray alloc] init];
     arrPhone = [[NSMutableArray alloc] init];
-    
+    _tbvAB.separatorColor = BlueDefault;
     // 读取手机通讯录
     [self readAddressBook];
     
