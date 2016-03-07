@@ -10,4 +10,6 @@
 
 @interface LocationInnerViewController : UIViewController
 
+@property (nonatomic,strong) NSString *spoiid;
+
 @end

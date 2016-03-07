@@ -25,8 +25,12 @@
 		CC60320B1C893975001FC946 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC60320A1C893975001FC946 /* ContentViewController.m */; };
 		CC7108E11C8C3A7D003C2C5F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC7108E01C8C3A7D003C2C5F /* WebKit.framework */; };
 		CC7108E41C8C5957003C2C5F /* DetailWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7108E31C8C5957003C2C5F /* DetailWebViewController.m */; };
+		CC8AA1781C8DD00E000ADE7B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8AA1731C8DD00E000ADE7B /* LoginViewController.m */; };
+		CC8AA1791C8DD00E000ADE7B /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8AA1751C8DD00E000ADE7B /* RegisterViewController.m */; };
+		CC8AA17A1C8DD00E000ADE7B /* UpdatePWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8AA1771C8DD00E000ADE7B /* UpdatePWDViewController.m */; };
+		CC8AA17E1C8DD4F0000ADE7B /* LeftDrawerScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8AA17D1C8DD4F0000ADE7B /* LeftDrawerScrollViewController.m */; };
+		CC8AA1811C8DD4FD000ADE7B /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8AA1801C8DD4FD000ADE7B /* OtherViewController.m */; };
 		CC97B56E1C804EE1004387D5 /* Contants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC97B56D1C804EE1004387D5 /* Contants.m */; };
-		CC9EBDA11C849097007BEDDE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9EBDA01C849097007BEDDE /* LoginViewController.m */; };
 		CCA05D2A1C8A9D82003CA50C /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA05D291C8A9D82003CA50C /* NewsModel.m */; };
 		CCA05D2D1C8A9E19003CA50C /* BlogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA05D2C1C8A9E19003CA50C /* BlogModel.m */; };
 		CCA600EC1C8086D7002AF9D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCA600EB1C8086D7002AF9D2 /* Assets.xcassets */; };
@@ -69,8 +73,6 @@
 		CCDFF6171C8D105700623E60 /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDFF6161C8D105700623E60 /* DetailModel.m */; };
 		CCDFF61E1C8D265E00623E60 /* AddressBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDFF61D1C8D265E00623E60 /* AddressBookModel.m */; };
 		CCDFF6201C8D269F00623E60 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCDFF61F1C8D269F00623E60 /* AddressBook.framework */; };
-		CCE4FC691C8027E900A48A43 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE4FC681C8027E900A48A43 /* RegisterViewController.m */; };
-		CCE4FC6C1C802C4300A48A43 /* UpdatePWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE4FC6B1C802C4300A48A43 /* UpdatePWDViewController.m */; };
 		CCFF90C31C8DAA7900114E73 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFF90C21C8DAA7900114E73 /* libz.tbd */; };
 		CCFF90C51C8DAA8300114E73 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFF90C41C8DAA8300114E73 /* CoreLocation.framework */; };
 		CCFF90C71C8DAB6900114E73 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFF90C61C8DAB6900114E73 /* libstdc++.6.0.9.tbd */; };
@@ -112,10 +114,18 @@
 		CC7108E01C8C3A7D003C2C5F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		CC7108E21C8C5957003C2C5F /* DetailWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailWebViewController.h; sourceTree = "<group>"; };
 		CC7108E31C8C5957003C2C5F /* DetailWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailWebViewController.m; sourceTree = "<group>"; };
+		CC8AA1721C8DD00E000ADE7B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		CC8AA1731C8DD00E000ADE7B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		CC8AA1741C8DD00E000ADE7B /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		CC8AA1751C8DD00E000ADE7B /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		CC8AA1761C8DD00E000ADE7B /* UpdatePWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdatePWDViewController.h; sourceTree = "<group>"; };
+		CC8AA1771C8DD00E000ADE7B /* UpdatePWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdatePWDViewController.m; sourceTree = "<group>"; };
+		CC8AA17C1C8DD4F0000ADE7B /* LeftDrawerScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftDrawerScrollViewController.h; sourceTree = "<group>"; };
+		CC8AA17D1C8DD4F0000ADE7B /* LeftDrawerScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftDrawerScrollViewController.m; sourceTree = "<group>"; };
+		CC8AA17F1C8DD4FD000ADE7B /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
+		CC8AA1801C8DD4FD000ADE7B /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
 		CC97B56C1C804EE1004387D5 /* Contants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contants.h; sourceTree = "<group>"; };
 		CC97B56D1C804EE1004387D5 /* Contants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contants.m; sourceTree = "<group>"; };
-		CC9EBD9F1C849097007BEDDE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		CC9EBDA01C849097007BEDDE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CCA05D281C8A9D82003CA50C /* NewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsModel.h; sourceTree = "<group>"; };
 		CCA05D291C8A9D82003CA50C /* NewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsModel.m; sourceTree = "<group>"; };
 		CCA05D2B1C8A9E19003CA50C /* BlogModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogModel.h; sourceTree = "<group>"; };
@@ -198,10 +208,6 @@
 		CCDFF61C1C8D265E00623E60 /* AddressBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookModel.h; sourceTree = "<group>"; };
 		CCDFF61D1C8D265E00623E60 /* AddressBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookModel.m; sourceTree = "<group>"; };
 		CCDFF61F1C8D269F00623E60 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
-		CCE4FC671C8027E800A48A43 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		CCE4FC681C8027E900A48A43 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		CCE4FC6A1C802C4300A48A43 /* UpdatePWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdatePWDViewController.h; sourceTree = "<group>"; };
-		CCE4FC6B1C802C4300A48A43 /* UpdatePWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdatePWDViewController.m; sourceTree = "<group>"; };
 		CCFF90C21C8DAA7900114E73 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		CCFF90C41C8DAA8300114E73 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CCFF90C61C8DAB6900114E73 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
@@ -326,7 +332,7 @@
 			children = (
 				CCAA074E1C8D69DE00393F15 /* FrendsDetail */,
 				CCD4C9211C87428A00657CA3 /* PersonalOtherButton */,
-				CCE4FC6D1C802D2C00A48A43 /* LoginAndRegister */,
+				CC8AA1711C8DD00E000ADE7B /* LoginAndRegister */,
 				CC6032081C893957001FC946 /* IndustryContent */,
 				BC5C241F1C76A1D7003D6FE9 /* RootViewController.h */,
 				BC5C24201C76A1D7003D6FE9 /* RootViewController.m */,
@@ -388,6 +394,30 @@
 				CC7108E01C8C3A7D003C2C5F /* WebKit.framework */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC8AA1711C8DD00E000ADE7B /* LoginAndRegister */ = {
+			isa = PBXGroup;
+			children = (
+				CC8AA1721C8DD00E000ADE7B /* LoginViewController.h */,
+				CC8AA1731C8DD00E000ADE7B /* LoginViewController.m */,
+				CC8AA1741C8DD00E000ADE7B /* RegisterViewController.h */,
+				CC8AA1751C8DD00E000ADE7B /* RegisterViewController.m */,
+				CC8AA1761C8DD00E000ADE7B /* UpdatePWDViewController.h */,
+				CC8AA1771C8DD00E000ADE7B /* UpdatePWDViewController.m */,
+			);
+			path = LoginAndRegister;
+			sourceTree = "<group>";
+		};
+		CC8AA17B1C8DD4D2000ADE7B /* LeftDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				CC8AA17C1C8DD4F0000ADE7B /* LeftDrawerScrollViewController.h */,
+				CC8AA17D1C8DD4F0000ADE7B /* LeftDrawerScrollViewController.m */,
+				CC8AA17F1C8DD4FD000ADE7B /* OtherViewController.h */,
+				CC8AA1801C8DD4FD000ADE7B /* OtherViewController.m */,
+			);
+			path = LeftDrawer;
 			sourceTree = "<group>";
 		};
 		CCAA074E1C8D69DE00393F15 /* FrendsDetail */ = {
@@ -524,6 +554,7 @@
 		CCD4C9211C87428A00657CA3 /* PersonalOtherButton */ = {
 			isa = PBXGroup;
 			children = (
+				CC8AA17B1C8DD4D2000ADE7B /* LeftDrawer */,
 				CCD4C92C1C87428A00657CA3 /* SettingsViewController.h */,
 				CCD4C92D1C87428A00657CA3 /* SettingsViewController.m */,
 				CCD4C9241C87428A00657CA3 /* LeftDrawerViewController.h */,
@@ -575,19 +606,6 @@
 				CCDFF6161C8D105700623E60 /* DetailModel.m */,
 			);
 			name = Industry;
-			sourceTree = "<group>";
-		};
-		CCE4FC6D1C802D2C00A48A43 /* LoginAndRegister */ = {
-			isa = PBXGroup;
-			children = (
-				CC9EBD9F1C849097007BEDDE /* LoginViewController.h */,
-				CC9EBDA01C849097007BEDDE /* LoginViewController.m */,
-				CCE4FC671C8027E800A48A43 /* RegisterViewController.h */,
-				CCE4FC681C8027E900A48A43 /* RegisterViewController.m */,
-				CCE4FC6A1C802C4300A48A43 /* UpdatePWDViewController.h */,
-				CCE4FC6B1C802C4300A48A43 /* UpdatePWDViewController.m */,
-			);
-			name = LoginAndRegister;
 			sourceTree = "<group>";
 		};
 		CCFF90C81C8DABC200114E73 /* include */ = {
@@ -693,6 +711,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC8AA1791C8DD00E000ADE7B /* RegisterViewController.m in Sources */,
+				CC8AA17A1C8DD00E000ADE7B /* UpdatePWDViewController.m in Sources */,
 				CCC6A0FE1C841F460017D874 /* AFURLSessionManager.m in Sources */,
 				CCC6A0FB1C841F460017D874 /* AFSecurityPolicy.m in Sources */,
 				CC60320B1C893975001FC946 /* ContentViewController.m in Sources */,
@@ -709,6 +729,7 @@
 				CCAF91D41C8AD29E00815592 /* UIView+MJExtension.m in Sources */,
 				CCAA07511C8D6A0800393F15 /* FriendDetailViewController.m in Sources */,
 				CCAF91CC1C8AD29E00815592 /* MJRefreshBackStateFooter.m in Sources */,
+				CC8AA17E1C8DD4F0000ADE7B /* LeftDrawerScrollViewController.m in Sources */,
 				CCAF91CF1C8AD29E00815592 /* MJRefreshStateHeader.m in Sources */,
 				CCAA07571C8D94DC00393F15 /* MusicListModel.m in Sources */,
 				CCC6A0FA1C841F460017D874 /* AFNetworkReachabilityManager.m in Sources */,
@@ -719,13 +740,14 @@
 				CCAF91C61C8AD29E00815592 /* MJRefreshHeader.m in Sources */,
 				CC12F39A1C89551100F4C425 /* UtilMethod.m in Sources */,
 				CCAF91C21C8AD29E00815592 /* MJRefreshAutoFooter.m in Sources */,
+				CC8AA1811C8DD4FD000ADE7B /* OtherViewController.m in Sources */,
 				CC7108E41C8C5957003C2C5F /* DetailWebViewController.m in Sources */,
 				CCAF91D21C8AD29E00815592 /* UIScrollView+MJExtension.m in Sources */,
 				CCAF91C51C8AD29E00815592 /* MJRefreshFooter.m in Sources */,
 				BC5C24151C76A003003D6FE9 /* AppDelegate.m in Sources */,
 				CCAF91C81C8AD29E00815592 /* MJRefreshAutoNormalFooter.m in Sources */,
-				CCE4FC691C8027E900A48A43 /* RegisterViewController.m in Sources */,
 				CC12F39E1C89629600F4C425 /* GDataXMLNode.m in Sources */,
+				CC8AA1781C8DD00E000ADE7B /* LoginViewController.m in Sources */,
 				CCD4C9361C87428A00657CA3 /* StarsViewController.m in Sources */,
 				CCA05D2A1C8A9D82003CA50C /* NewsModel.m in Sources */,
 				CCAF91CB1C8AD29E00815592 /* MJRefreshBackNormalFooter.m in Sources */,
@@ -742,11 +764,9 @@
 				BC5C24211C76A1D7003D6FE9 /* RootViewController.m in Sources */,
 				CCDFF61E1C8D265E00623E60 /* AddressBookModel.m in Sources */,
 				CCC6A0FC1C841F460017D874 /* AFURLRequestSerialization.m in Sources */,
-				CC9EBDA11C849097007BEDDE /* LoginViewController.m in Sources */,
 				CCAF91C41C8AD29E00815592 /* MJRefreshComponent.m in Sources */,
 				CCDFF6171C8D105700623E60 /* DetailModel.m in Sources */,
 				CCAF91C91C8AD29E00815592 /* MJRefreshAutoStateFooter.m in Sources */,
-				CCE4FC6C1C802C4300A48A43 /* UpdatePWDViewController.m in Sources */,
 				CCC6A0FD1C841F460017D874 /* AFURLResponseSerialization.m in Sources */,
 				CC97B56E1C804EE1004387D5 /* Contants.m in Sources */,
 			);
