@@ -8,7 +8,16 @@
 
 #import "LocationInnerViewController.h"
 
+// 需要找到相对路径
+#import "../../Frameworks/include/IndoorDataManger.h"
+#import "../../Frameworks/include/IndoorMapView.h"
+#import "../../Frameworks/include/IndoorRouteRequest.h"
+#import "../../Frameworks/include/IndoorSearchEngine.h"
+#import "../../Frameworks/include/IndoorFloorHBar.h"
+
 @interface LocationInnerViewController ()
+
+@property (nonatomic,strong) IndoorMapView *mapView;
 
 @end
 
@@ -25,7 +34,14 @@
     // 右侧按钮标题
     self.navigationItem.title = @"室内定位";
     
-    
+    // 室内地图显示
+    [self showIndoorMap];
+}
+
+// 室内地图显示
+- (void)showIndoorMap {
+    _mapView = [[IndoorMapView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:_mapView];
 }
 
 - (void)didReceiveMemoryWarning {
