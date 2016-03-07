@@ -11,7 +11,7 @@
 #import "IndustryViewController.h"
 #import "TrendsViewController.h"
 #import "FrendsViewController.h"
-#import "CourseViewController.h"
+#import "ShareViewController.h"
 #import "PersonalViewController.h"
 #import "LeftDrawerViewController.h"
 
@@ -26,7 +26,7 @@
     // Do any additional setup after loading the view.
     
     // 设置第一次进入时显示的分栏项 -- 0行业，1动态，2中间button，3学友，4个人中心
-    self.tabBarController.selectedIndex = 0;
+    self.tabBarController.selectedIndex = 3;
     
     // 自定义 tabbar 分栏
     [self customTabBar];
@@ -59,8 +59,8 @@
 // centerBtn 点击事件
 - (void)centerBtnClick:(UIButton *)btn {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    CourseViewController *course = [story instantiateViewControllerWithIdentifier:@"course"];
-    [self presentViewController:course animated:YES completion:nil];
+    ShareViewController *share = [story instantiateViewControllerWithIdentifier:@"course"];
+    [self presentViewController:share animated:YES completion:nil];
 }
 
 // 导航条左侧按钮

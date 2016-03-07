@@ -8,6 +8,6 @@
 
 #import "RootViewController.h"
 
-@interface CourseViewController : RootViewController
+@interface ShareViewController : RootViewController
 
 @end

@@ -6,13 +6,13 @@
 //  Copyright © 2016年 Arlenly. All rights reserved.
 //
 
-#import "CourseViewController.h"
+#import "ShareViewController.h"
 
-@interface CourseViewController ()
+@interface ShareViewController ()
 
 @end
 
-@implementation CourseViewController
+@implementation ShareViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,7 +24,7 @@
     // 设置背景色
     self.view.backgroundColor = [UIColor whiteColor];
     // 右侧按钮标题
-    self.navigationItem.title = @"Course";
+//    self.navigationItem.title = @"share";
     
 }
 

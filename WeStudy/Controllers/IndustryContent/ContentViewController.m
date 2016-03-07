@@ -13,6 +13,7 @@
 #import "NewsModel.h"
 #import "BlogModel.h"
 #import "MJRefresh.h"
+#import "DetailWebViewController.h"
 
 @interface ContentViewController () <UITableViewDataSource,UITableViewDelegate>
 {
@@ -87,7 +88,7 @@
     //更新当前栏目
     currentPage = pageIndex;
     
-    // 发送当前页的通知，用来做下拉刷新、上拉加载，创建消息对象发送消息
+    // 发送当前页的通知，更新 currentPage ，用来做下拉刷新、上拉加载，创建消息对象发送消息
     NSNotification *notice = [NSNotification notificationWithName:@"currentPage" object:nil userInfo:@{@"pageIndex":[NSString stringWithFormat:@"%lu",(unsigned long)pageIndex]}];
     [[NSNotificationCenter defaultCenter] postNotification:notice];
     
@@ -160,6 +161,8 @@
             _nodePubDate = _arrPubDate[0];
             _arrID = [_news elementsForName:@"id"];
             _nodeID = _arrID[0];
+            _arrURLDetail = [_news elementsForName:@"url"];
+            _nodeURL = _arrURLDetail[0];
             
             BlogModel *blogModel = [[BlogModel alloc] init];
             blogModel.title = _nodeTitle.stringValue;
@@ -167,6 +170,7 @@
             blogModel.authorname = _nodeAuthor.stringValue;
             blogModel.pubDate = _nodePubDate.stringValue;
             blogModel.id_detail = _nodeID.stringValue.intValue;
+            blogModel.url = _nodeURL.stringValue;
             // 加入到数据源中
             [arrDataSource addObject:blogModel];
         }
@@ -208,10 +212,30 @@
     return cell;
 }
 
-// 行点击跳转到详细页
+// 行点击跳转到详细页，通过 id_detail 传过去网页的 URL
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // id_detail
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    DetailWebViewController *detailWeb = [story instantiateViewControllerWithIdentifier:@"detailContent"];
     
+    ///////////// 这里的接口不是 HTML ！！！改，传过去接口继续解析
+    
+    if (arrDataSource.count > 0) {
+        if ([arrDataSource[0] isMemberOfClass:[NewsModel class]]) {
+            NewsModel *newsModel = arrDataSource[indexPath.row];
+//            NSString *strURL = [NSString stringWithFormat:@"%@?id=%ld",NEWS_DETAIL,(long)newsModel.id_detail];    // 原接口在详细页还要进行解析，这里提取成了网页版
+            NSString *strURL = [NSString stringWithFormat:@"%@%ld",NEWS_HTML,(long)newsModel.id_detail];
+            // 传值可用 kvc，传 URL 到详细页
+            [detailWeb setValue:strURL forKey:@"strURL"];
+            // 方式一跳转，直接获取其框架视图控制器对象
+            [self.myViewController.navigationController pushViewController:detailWeb animated:YES];
+        }
+        if ([arrDataSource[0] isMemberOfClass:[BlogModel class]]) {
+            BlogModel *blogModel = arrDataSource[indexPath.row];
+            NSString *strURL = [NSString stringWithFormat:@"%@",blogModel.url];     // 网页
+            [self.myViewController.navigationController pushViewController:detailWeb animated:YES];
+            [detailWeb setValue:strURL forKey:@"strURL"];
+        }
+    }
 }
 
 

@@ -35,7 +35,8 @@ extern NSString * const URL_LOGIN_LOCAL;
 extern NSString * const URL_LOGIN_LGJ;
 
 // OSChina开源中国接口：
-
+// HTML
+extern NSString * const NEWS_HTML;
 // 综合 news_list 详细页接口
 extern NSString * const NEWS_DETAIL;
 

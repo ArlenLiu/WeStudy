@@ -138,6 +138,9 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     IndustryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"content" forIndexPath:indexPath];
     
+    // 方式一下设置cell中的内容视图控制器的框架视图控制器
+    cell.contentVC.myViewController = self;
+    
     // 传输当前页页码经 industry collection cell 到 contentVC
     cell.pageIndex = indexPath.row;
     

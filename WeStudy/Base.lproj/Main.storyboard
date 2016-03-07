@@ -172,7 +172,7 @@
         <!--Detail Web View Controller-->
         <scene sceneID="i9B-yG-vXr">
             <objects>
-                <viewController id="NZU-5Q-DtR" customClass="DetailWebViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailContent" id="NZU-5Q-DtR" customClass="DetailWebViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JIB-j0-03M"/>
                         <viewControllerLayoutGuide type="bottom" id="U7n-nu-Hb1"/>
@@ -205,6 +205,9 @@
                             <constraint firstItem="U7n-nu-Hb1" firstAttribute="top" secondItem="Lcy-Xs-4DK" secondAttribute="bottom" constant="20" id="wnI-JL-fLc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="f3Q-gM-686" id="s8p-sb-yiF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bSN-yI-Cfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -229,10 +232,10 @@
             </objects>
             <point key="canvasLocation" x="597" y="682"/>
         </scene>
-        <!--Course View Controller-->
+        <!--Share View Controller-->
         <scene sceneID="cvN-Iv-XfP">
             <objects>
-                <viewController storyboardIdentifier="course" id="5xF-Rs-GzY" customClass="CourseViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="course" id="5xF-Rs-GzY" customClass="ShareViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0zx-0W-H0U"/>
                         <viewControllerLayoutGuide type="bottom" id="nCr-5p-kGa"/>
@@ -271,13 +274,65 @@
                     <view key="view" contentMode="scaleToFill" id="vkg-Wx-d0f">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sMF-pv-q1V">
+                                <rect key="frame" x="-4" y="64" width="328" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="sMF-pv-q1V" secondAttribute="trailing" constant="-20" id="1OM-Wr-MaK"/>
+                            <constraint firstItem="pM8-sJ-kP1" firstAttribute="top" secondItem="sMF-pv-q1V" secondAttribute="bottom" id="X3l-dm-UPc"/>
+                            <constraint firstItem="sMF-pv-q1V" firstAttribute="leading" secondItem="vkg-Wx-d0f" secondAttribute="leadingMargin" constant="-20" id="eNt-PK-t80"/>
+                            <constraint firstItem="sMF-pv-q1V" firstAttribute="top" secondItem="4y4-0Y-8CA" secondAttribute="bottom" id="iG5-mX-3Gu"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="学友" id="bxk-yw-6vp"/>
+                    <connections>
+                        <outlet property="tbvAB" destination="sMF-pv-q1V" id="gYo-ON-znG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Prd-ui-FKC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1370" y="682"/>
+        </scene>
+        <!--Friend Detail View Controller-->
+        <scene sceneID="s1Z-P3-8VV">
+            <objects>
+                <viewController storyboardIdentifier="frienddetail" id="NDy-11-n8m" customClass="FriendDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aFB-cO-bPV"/>
+                        <viewControllerLayoutGuide type="bottom" id="fVU-BJ-d36"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="on5-tg-4CO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qye-Pt-II9">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="NDy-11-n8m" id="4rg-29-f6I"/>
+                                    <outlet property="delegate" destination="NDy-11-n8m" id="gwC-zK-gjp"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qye-Pt-II9" secondAttribute="trailing" constant="-20" id="Ajr-Mb-E8o"/>
+                            <constraint firstItem="Qye-Pt-II9" firstAttribute="leading" secondItem="on5-tg-4CO" secondAttribute="leadingMargin" constant="-20" id="HIK-0k-D8B"/>
+                            <constraint firstItem="fVU-BJ-d36" firstAttribute="top" secondItem="Qye-Pt-II9" secondAttribute="bottom" id="a9K-yf-EDy"/>
+                            <constraint firstItem="Qye-Pt-II9" firstAttribute="top" secondItem="on5-tg-4CO" secondAttribute="topMargin" id="iNE-aO-Tsh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tbvPhone" destination="Qye-Pt-II9" id="YfJ-oC-KVq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Eo-cr-ReU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1370" y="1372"/>
         </scene>
         <!--个人中心-->
         <scene sceneID="hgy-7o-PnI">
@@ -881,7 +936,7 @@
         <scene sceneID="nUt-vM-Oox">
             <objects>
                 <navigationController id="52F-vm-66K" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="学友" image="icon_frends" id="sKK-Gr-GTz"/>
+                    <tabBarItem key="tabBarItem" title="学友" image="icon_friends" id="sKK-Gr-GTz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4i7-sZ-q7d">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -913,7 +968,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_frends" width="21" height="21"/>
+        <image name="icon_friends" width="25" height="25"/>
         <image name="icon_industry" width="19" height="20"/>
         <image name="icon_personal" width="18" height="20"/>
         <image name="icon_trends" width="23" height="15"/>

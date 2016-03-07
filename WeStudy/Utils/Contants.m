@@ -16,6 +16,8 @@ NSString * const URL_LOGIN_LOCAL = @"http://localhost/westudy/loginios.php";
 NSString * const URL_LOGIN_LGJ = @"http://www.liugangjian.com/loginios.php";
 
 // OSChina开源中国接口：
+// 综合 news_list 网页html
+NSString * const NEWS_HTML = @"http://www.oschina.net/news/";
 // 综合 news_list 根接口，具体文章在后面传参 id=
 NSString * const NEWS_DETAIL = @"http://www.oschina.net/action/api/news_detail";
 
