@@ -21,8 +21,6 @@
     
     // 导航条返回键文字颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    // 设置背景色
-    self.view.backgroundColor = [UIColor whiteColor];
     // 右侧按钮标题
     self.navigationItem.title = @"资料库";
     

@@ -224,7 +224,25 @@
                     <view key="view" contentMode="scaleToFill" id="MGy-ZO-dtG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" showsSearchResultsButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bRA-cX-PDO">
+                                <rect key="frame" x="-4" y="64" width="328" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="zKO-m6-ska"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="bRA-cX-PDO" secondAttribute="trailing" constant="-20" id="UID-am-Q8z"/>
+                            <constraint firstItem="bRA-cX-PDO" firstAttribute="top" secondItem="jw2-VG-5QD" secondAttribute="bottom" id="WAi-kM-NKE"/>
+                            <constraint firstItem="bRA-cX-PDO" firstAttribute="leading" secondItem="MGy-ZO-dtG" secondAttribute="leadingMargin" constant="-20" id="jfh-YP-EN9"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="动态" id="pLf-am-n1g"/>
                 </viewController>

@@ -7,8 +7,14 @@
 //
 
 #import "MultiMediaViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import "MusicListModel.h"
+#import "Contants.h"
 
-@interface MultiMediaViewController ()
+@interface MultiMediaViewController () <UITableViewDelegate,UITableViewDataSource>
+{
+    NSMutableArray *arrDataSource;
+}
 
 @end
 
@@ -21,11 +27,59 @@
     // 导航条返回键文字颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     // 设置背景色
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:243/255.0 alpha:1.0];
     // 右侧按钮标题
     self.navigationItem.title = @"多媒体";
     
+    //
+    arrDataSource = [[NSMutableArray alloc] init];
     
+    // 扫描本地音乐
+    [self queryAllMusic];
+    
+    // tableview
+    UITableView *tbv = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT - 64) style:UITableViewStylePlain];
+    [self.view addSubview:tbv];
+    tbv.separatorColor = [UIColor redColor];
+    tbv.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    tbv.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    tbv.dataSource = self;
+    tbv.delegate = self;
+    [tbv registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+}
+
+// 扫描本地音乐
+- (void)queryAllMusic {
+    MPMediaQuery *everything = [[MPMediaQuery alloc] init];
+    NSArray *itemsFromGenericQuery = [everything items];
+    
+    for (MPMediaItem *song in itemsFromGenericQuery) {
+        NSString *songTitle = [song valueForProperty: MPMediaItemPropertyTitle];
+        NSString *songArtist = [song valueForProperty:MPMediaItemPropertyArtist];
+        
+        MusicListModel *music = [[MusicListModel alloc] init];
+        music.title = songTitle;
+        music.artist = songArtist
+        [arrDataSource addObject:music];
+    }
+}
+
+#pragma mark uitableviewdatasource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return arrDataSource.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    MusicListModel *music = arrDataSource[indexPath.row];
+    cell.textLabel.text = music.title;
+    cell.detailTextLabel.text = music.artist;;  // 不显示？
+    cell.imageView.image = [UIImage imageNamed:@"music"];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 

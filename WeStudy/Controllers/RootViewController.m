@@ -26,7 +26,7 @@
     // Do any additional setup after loading the view.
     
     // 设置第一次进入时显示的分栏项 -- 0行业，1动态，2中间button，3学友，4个人中心
-    self.tabBarController.selectedIndex = 3;
+    self.tabBarController.selectedIndex = 4;
     
     // 自定义 tabbar 分栏
     [self customTabBar];

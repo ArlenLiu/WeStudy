@@ -31,6 +31,8 @@
 		CCA05D2D1C8A9E19003CA50C /* BlogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA05D2C1C8A9E19003CA50C /* BlogModel.m */; };
 		CCA600EC1C8086D7002AF9D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCA600EB1C8086D7002AF9D2 /* Assets.xcassets */; };
 		CCAA07511C8D6A0800393F15 /* FriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAA07501C8D6A0800393F15 /* FriendDetailViewController.m */; };
+		CCAA07531C8D897300393F15 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCAA07521C8D897300393F15 /* MediaPlayer.framework */; };
+		CCAA07571C8D94DC00393F15 /* MusicListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAA07561C8D94DC00393F15 /* MusicListModel.m */; };
 		CCAF91C21C8AD29E00815592 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAF91981C8AD29E00815592 /* MJRefreshAutoFooter.m */; };
 		CCAF91C31C8AD29E00815592 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAF919A1C8AD29E00815592 /* MJRefreshBackFooter.m */; };
 		CCAF91C41C8AD29E00815592 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAF919C1C8AD29E00815592 /* MJRefreshComponent.m */; };
@@ -116,6 +118,9 @@
 		CCA600EB1C8086D7002AF9D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		CCAA074F1C8D6A0800393F15 /* FriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDetailViewController.h; sourceTree = "<group>"; };
 		CCAA07501C8D6A0800393F15 /* FriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendDetailViewController.m; sourceTree = "<group>"; };
+		CCAA07521C8D897300393F15 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		CCAA07551C8D94DC00393F15 /* MusicListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicListModel.h; sourceTree = "<group>"; };
+		CCAA07561C8D94DC00393F15 /* MusicListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicListModel.m; sourceTree = "<group>"; };
 		CCAF91971C8AD29E00815592 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		CCAF91981C8AD29E00815592 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		CCAF91991C8AD29E00815592 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -199,6 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCAA07531C8D897300393F15 /* MediaPlayer.framework in Frameworks */,
 				CCDFF6201C8D269F00623E60 /* AddressBook.framework in Frameworks */,
 				CC7108E11C8C3A7D003C2C5F /* WebKit.framework in Frameworks */,
 				CC12F3A01C8962BA00F4C425 /* libxml2.tbd in Frameworks */,
@@ -270,6 +276,7 @@
 		BC5C241B1C76A016003D6FE9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CCAA07541C8D94C400393F15 /* MusicList */,
 				CCDFF6181C8D250E00623E60 /* Frends */,
 				CCE1B43E1C89D83F00E4A643 /* Industry */,
 			);
@@ -353,6 +360,7 @@
 			children = (
 				CC12F3A11C8962D200F4C425 /* ThirdParty */,
 				CC12F39F1C8962BA00F4C425 /* libxml2.tbd */,
+				CCAA07521C8D897300393F15 /* MediaPlayer.framework */,
 				CCDFF61F1C8D269F00623E60 /* AddressBook.framework */,
 				CC7108E01C8C3A7D003C2C5F /* WebKit.framework */,
 			);
@@ -366,6 +374,15 @@
 				CCAA07501C8D6A0800393F15 /* FriendDetailViewController.m */,
 			);
 			name = FrendsDetail;
+			sourceTree = "<group>";
+		};
+		CCAA07541C8D94C400393F15 /* MusicList */ = {
+			isa = PBXGroup;
+			children = (
+				CCAA07551C8D94DC00393F15 /* MusicListModel.h */,
+				CCAA07561C8D94DC00393F15 /* MusicListModel.m */,
+			);
+			name = MusicList;
 			sourceTree = "<group>";
 		};
 		CCAF91951C8AD29E00815592 /* MJRefresh */ = {
@@ -647,6 +664,7 @@
 				CCAA07511C8D6A0800393F15 /* FriendDetailViewController.m in Sources */,
 				CCAF91CC1C8AD29E00815592 /* MJRefreshBackStateFooter.m in Sources */,
 				CCAF91CF1C8AD29E00815592 /* MJRefreshStateHeader.m in Sources */,
+				CCAA07571C8D94DC00393F15 /* MusicListModel.m in Sources */,
 				CCC6A0FA1C841F460017D874 /* AFNetworkReachabilityManager.m in Sources */,
 				CCD4C9321C87428A00657CA3 /* LocationInnerViewController.m in Sources */,
 				BC5C249C1C770CB9003D6FE9 /* IndustryViewController.m in Sources */,
