@@ -80,6 +80,12 @@
     }];
 }
 
+- (void)reloadAndRefresh {
+    [self.tbv reloadData];
+    [self.tbv.mj_header endRefreshing];
+    [self.tbv.mj_footer endRefreshing];
+}
+
 // 得到页码，网络获取相应页码的接口，解析之 -- 开源中国接口解析
 - (void)showPageIndex:(NSUInteger)pageIndex {
     // 获取新的栏目时，数组应清空，实际开发时，还要考虑当前是否是第一页
@@ -182,11 +188,6 @@
     }];
 }
 
-- (void)reloadAndRefresh {
-    [self.tbv reloadData];
-    [self.tbv.mj_header endRefreshing];
-    [self.tbv.mj_footer endRefreshing];
-}
 
 #pragma mark - 代理协议方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

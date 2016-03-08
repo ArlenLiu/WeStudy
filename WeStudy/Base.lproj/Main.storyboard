@@ -262,9 +262,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVm-WL-rpS">
-                                <rect key="frame" x="20" y="72" width="124" height="53"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVm-WL-rpS">
+                                <rect key="frame" x="98" y="417" width="124" height="53"/>
                                 <color key="backgroundColor" red="1" green="0.63385474519999996" blue="0.36554020770000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="124" id="OOM-ji-nAX"/>
+                                    <constraint firstAttribute="height" constant="53" id="z3z-D7-0Cy"/>
+                                </constraints>
                                 <state key="normal" title="返回">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -274,6 +278,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="nCr-5p-kGa" firstAttribute="top" secondItem="xVm-WL-rpS" secondAttribute="bottom" constant="49" id="fPh-IA-kY1"/>
+                            <constraint firstItem="xVm-WL-rpS" firstAttribute="centerX" secondItem="kLl-3f-g3x" secondAttribute="centerX" id="vDV-yd-ZRy"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9y8-Lg-Wml"/>
                 </viewController>
