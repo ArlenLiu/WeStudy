@@ -3,7 +3,7 @@
 
 target 'WeStudy' do
 
-
+pod 'XHRealTimeBlur'
 pod 'pop'
 
 end
