@@ -1,23 +1,31 @@
 //
-//  LeftDrawerScrollViewController.m
+//  LeftDrawerViewController.m
 //  WeStudy
 //
-//  Created by Arlenly on 16/3/7.
+//  Created by Arlenly on 16/3/1.
 //  Copyright © 2016年 Arlenly. All rights reserved.
 //
 
-#import "LeftDrawerScrollViewController.h"
+#import "LeftDrawerViewController.h"
 
-@interface LeftDrawerScrollViewController ()
+@interface LeftDrawerViewController ()
 
 @end
 
-@implementation LeftDrawerScrollViewController
+@implementation LeftDrawerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // 导航条返回键文字颜色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    // 设置背景色
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

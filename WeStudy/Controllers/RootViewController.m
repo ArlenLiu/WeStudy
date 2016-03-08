@@ -13,9 +13,13 @@
 #import "FrendsViewController.h"
 #import "ShareViewController.h"
 #import "PersonalViewController.h"
-#import "LeftDrawerViewController.h"
+//#import "LeftDrawerViewController.h"
 
 @interface RootViewController ()
+{
+    // 左侧抽屉是否显示，显示为 YES
+    BOOL leftDrawerBool;
+}
 
 @end
 
@@ -26,66 +30,101 @@
     // Do any additional setup after loading the view.
     
     // 设置第一次进入时显示的分栏项 -- 0行业，1动态，2中间button，3学友，4个人中心
-    self.tabBarController.selectedIndex = 4;
+    self.tabBarController.selectedIndex = 0;
     
-    // 自定义 tabbar 分栏
     [self customTabBar];
-    
-    // 导航条左侧按钮
     [self leftNavi];
+    
+    leftDrawerBool = NO;
     
 }
 
-// 自定义 tabbar 分栏
 - (void)customTabBar {
-    // 分栏条前景色，选中状态
-//    self.tabBarController.tabBar.tintColor = [UIColor colorWithRed:13/255.0 green:178/255.0 blue:46/255.0 alpha:1.0];
     self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
     self.tabBarController.tabBar.translucent = NO;
-    
-//    [self.tabBarController.tabBar.selectedImageTintColor = [UIColor orangeColor];
-    
-    // 分栏条背景色
-//    self.tabBarController.tabBar.barTintColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1.0];
     self.tabBarController.tabBar.barTintColor = BlueDefault;
     
-    // Course -- 分栏正中间按钮
+    // 分栏正中间按钮
     UIButton *centerBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH / 2 - HEIGHT_TABBAR / 2, 0, HEIGHT_TABBAR, HEIGHT_TABBAR)];
     [centerBtn setBackgroundImage:[UIImage imageNamed:@"icon_share"] forState:UIControlStateNormal];
     [self.tabBarController.tabBar addSubview:centerBtn];
     [centerBtn addTarget:self action:@selector(centerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-// centerBtn 点击事件
 - (void)centerBtnClick:(UIButton *)btn {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ShareViewController *share = [story instantiateViewControllerWithIdentifier:@"course"];
     [self presentViewController:share animated:YES completion:nil];
 }
 
-// 导航条左侧按钮
 - (void)leftNavi {
-    // 设置状态栏和navigatiionbar前景色为白色（透明度取消），即文字为白色
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    
     // 导航条背景色
     self.navigationController.navigationBar.barTintColor = BlueDefault;
     
+    // 抽屉按钮
     UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(leftClick)];
     leftBarItem.tintColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = leftBarItem;
     
 }
 
-
-///////////////// 待完成 ////////////////////
 // 左侧书签按钮点击事件 -- 抽屉效果
 - (void)leftClick {
-    LeftDrawerViewController *leftDrawer = [[LeftDrawerViewController alloc] init];
-    [self presentViewController:leftDrawer animated:YES completion:nil];
+    if (leftDrawerBool == NO) {
+        [UIView animateWithDuration:0.5 animations:^{
+            CGPoint pt = self.tabBarController.view.center;
+            pt.x += WIDTH_DRAWER;
+            self.tabBarController.view.center = pt;
+            leftDrawerBool = YES;
+        }];
+    }
+    else {
+        [UIView animateWithDuration:0.5 animations:^{
+            CGPoint pt = self.tabBarController.view.center;
+            pt.x -= WIDTH_DRAWER;
+            self.tabBarController.view.center = pt;
+            leftDrawerBool = NO;
+        }];
+    }
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // 获取添加到 window 上的抽屉
+    UIView *uvLeft = [self.view.window viewWithTag:1000];
+    if (uvLeft == nil) {
+        // 还没有添加过抽屉视图才添加
+        UIView *uvAdd = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH_DRAWER, HEIGHT + 64 + 49)];
+        uvAdd.backgroundColor = BlueDefaultBackground;
+        uvAdd.tag = 1000;
+        [self.view.window insertSubview:uvAdd atIndex:0];
+        
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 64, WIDTH_DRAWER, 50)];
+        [btn setTitle:@"学吧" forState:UIControlStateNormal];
+        [btn setBackgroundColor:BlueDefault];
+        [uvAdd addSubview:btn];
+        [btn addTarget:self action:@selector(btnInDrawerClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+}
+
+- (void)btnInDrawerClick:(UIButton *)btn {
+    NSLog(@"Left Drawer Clicking");
+}
+
+// 点击屏幕 抽屉收回 -- bug ?!
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (leftDrawerBool == YES) {
+        [UIView animateWithDuration:0.5 animations:^{
+            CGPoint pt = self.tabBarController.view.center;
+            pt.x -= WIDTH_DRAWER;
+            self.tabBarController.view.center = pt;
+            leftDrawerBool = NO;
+        }];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

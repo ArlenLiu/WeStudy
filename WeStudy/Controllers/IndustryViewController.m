@@ -16,14 +16,12 @@
 {
     // 数据源
     NSMutableArray *arrDataSource;
-    // 顶部栏目数据源
     NSArray *arrColumnDataSource;
     // 当前页
     NSUInteger currentPage;
-    // 导航栏分栏字体大小
+    // 导航栏分栏
     UIFont *font_big;
     UIFont *font_small;
-    // 顶部分栏数量
     NSInteger numOfTopColumn;
 }
 
@@ -47,10 +45,6 @@
     // 初始化数据
     [self initData];
     
-    // 网络读取数据
-//    [self dataFromWeb];
-    
-    // 注册 collection cell
     [self registerCells];
     
     // 顶部栏目
@@ -114,9 +108,10 @@
 
 #pragma mark - scrollview 缓冲停下时
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    // 计算和记录当前页
     CGPoint pt = scrollView.contentOffset;
     currentPage = pt.x / self.view.frame.size.width;
+    
+    [_collection setContentOffset:CGPointMake(currentPage * WIDTH, 0) animated:YES];
     
     // 设置第 currentPage 个 button 为选中状态，颜色为蓝色，其余为灰色
     UIButton *btn = [self.view viewWithTag:currentPage + BTN_START_TAG];
@@ -158,6 +153,16 @@
     return CGSizeMake(WIDTH, HEIGHT - 44 - H_TOP_INDUSTRY);
 }
 
+// ******* 不加下面三个方法滚动后会变形
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(0, 0, 0, 0);
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 0;
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 0;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

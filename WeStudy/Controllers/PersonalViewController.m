@@ -43,7 +43,7 @@
     self.portraitView.layer.cornerRadius = self.portraitView.frame.size.width / 2;
     self.portraitView.clipsToBounds = YES;
     
-    // 初始化 NSUserDefaults，自动登录
+    // 初始化 NSUserDefaults
     self.loginUserDefaults = [NSUserDefaults standardUserDefaults];
     
     // storyboard 初始化

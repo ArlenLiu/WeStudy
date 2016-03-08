@@ -28,8 +28,8 @@
 		CC8AA1781C8DD00E000ADE7B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8AA1731C8DD00E000ADE7B /* LoginViewController.m */; };
 		CC8AA1791C8DD00E000ADE7B /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8AA1751C8DD00E000ADE7B /* RegisterViewController.m */; };
 		CC8AA17A1C8DD00E000ADE7B /* UpdatePWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8AA1771C8DD00E000ADE7B /* UpdatePWDViewController.m */; };
-		CC8AA17E1C8DD4F0000ADE7B /* LeftDrawerScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8AA17D1C8DD4F0000ADE7B /* LeftDrawerScrollViewController.m */; };
 		CC8AA1811C8DD4FD000ADE7B /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8AA1801C8DD4FD000ADE7B /* OtherViewController.m */; };
+		CC8AA1841C8DEBF7000ADE7B /* LeftDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8AA1831C8DEBF7000ADE7B /* LeftDrawerViewController.m */; };
 		CC97B56E1C804EE1004387D5 /* Contants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC97B56D1C804EE1004387D5 /* Contants.m */; };
 		CCA05D2A1C8A9D82003CA50C /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA05D291C8A9D82003CA50C /* NewsModel.m */; };
 		CCA05D2D1C8A9E19003CA50C /* BlogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA05D2C1C8A9E19003CA50C /* BlogModel.m */; };
@@ -63,7 +63,6 @@
 		CCC6A0FD1C841F460017D874 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC6A0F61C841F460017D874 /* AFURLResponseSerialization.m */; };
 		CCC6A0FE1C841F460017D874 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC6A0F81C841F460017D874 /* AFURLSessionManager.m */; };
 		CCD4C9301C87428A00657CA3 /* FollowMajorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD4C9231C87428A00657CA3 /* FollowMajorViewController.m */; };
-		CCD4C9311C87428A00657CA3 /* LeftDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD4C9251C87428A00657CA3 /* LeftDrawerViewController.m */; };
 		CCD4C9321C87428A00657CA3 /* LocationInnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD4C9271C87428A00657CA3 /* LocationInnerViewController.m */; };
 		CCD4C9331C87428A00657CA3 /* MultiMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD4C9291C87428A00657CA3 /* MultiMediaViewController.m */; };
 		CCD4C9341C87428A00657CA3 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD4C92B1C87428A00657CA3 /* NoticeViewController.m */; };
@@ -120,10 +119,10 @@
 		CC8AA1751C8DD00E000ADE7B /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		CC8AA1761C8DD00E000ADE7B /* UpdatePWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdatePWDViewController.h; sourceTree = "<group>"; };
 		CC8AA1771C8DD00E000ADE7B /* UpdatePWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdatePWDViewController.m; sourceTree = "<group>"; };
-		CC8AA17C1C8DD4F0000ADE7B /* LeftDrawerScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftDrawerScrollViewController.h; sourceTree = "<group>"; };
-		CC8AA17D1C8DD4F0000ADE7B /* LeftDrawerScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftDrawerScrollViewController.m; sourceTree = "<group>"; };
 		CC8AA17F1C8DD4FD000ADE7B /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
 		CC8AA1801C8DD4FD000ADE7B /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
+		CC8AA1821C8DEBF7000ADE7B /* LeftDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftDrawerViewController.h; sourceTree = "<group>"; };
+		CC8AA1831C8DEBF7000ADE7B /* LeftDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftDrawerViewController.m; sourceTree = "<group>"; };
 		CC97B56C1C804EE1004387D5 /* Contants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contants.h; sourceTree = "<group>"; };
 		CC97B56D1C804EE1004387D5 /* Contants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contants.m; sourceTree = "<group>"; };
 		CCA05D281C8A9D82003CA50C /* NewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsModel.h; sourceTree = "<group>"; };
@@ -189,8 +188,6 @@
 		CCC6A0F81C841F460017D874 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		CCD4C9221C87428A00657CA3 /* FollowMajorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowMajorViewController.h; sourceTree = "<group>"; };
 		CCD4C9231C87428A00657CA3 /* FollowMajorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowMajorViewController.m; sourceTree = "<group>"; };
-		CCD4C9241C87428A00657CA3 /* LeftDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftDrawerViewController.h; sourceTree = "<group>"; };
-		CCD4C9251C87428A00657CA3 /* LeftDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftDrawerViewController.m; sourceTree = "<group>"; };
 		CCD4C9261C87428A00657CA3 /* LocationInnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationInnerViewController.h; sourceTree = "<group>"; };
 		CCD4C9271C87428A00657CA3 /* LocationInnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationInnerViewController.m; sourceTree = "<group>"; };
 		CCD4C9281C87428A00657CA3 /* MultiMediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiMediaViewController.h; sourceTree = "<group>"; };
@@ -258,12 +255,12 @@
 		BC5C23FA1C769F8E003D6FE9 /* WeStudy */ = {
 			isa = PBXGroup;
 			children = (
-				CC7F37A41C8196AD00BE44C3 /* Frameworks */,
 				BC5C24121C76A003003D6FE9 /* Application */,
 				BC5C24171C76A011003D6FE9 /* Controllers */,
 				BC5C241E1C76A026003D6FE9 /* Views */,
 				BC5C241B1C76A016003D6FE9 /* Models */,
 				BC5C241D1C76A021003D6FE9 /* Utils */,
+				CC7F37A41C8196AD00BE44C3 /* Frameworks */,
 				BC5C23FB1C769F8E003D6FE9 /* Supporting Files */,
 			);
 			path = WeStudy;
@@ -412,8 +409,8 @@
 		CC8AA17B1C8DD4D2000ADE7B /* LeftDrawer */ = {
 			isa = PBXGroup;
 			children = (
-				CC8AA17C1C8DD4F0000ADE7B /* LeftDrawerScrollViewController.h */,
-				CC8AA17D1C8DD4F0000ADE7B /* LeftDrawerScrollViewController.m */,
+				CC8AA1821C8DEBF7000ADE7B /* LeftDrawerViewController.h */,
+				CC8AA1831C8DEBF7000ADE7B /* LeftDrawerViewController.m */,
 				CC8AA17F1C8DD4FD000ADE7B /* OtherViewController.h */,
 				CC8AA1801C8DD4FD000ADE7B /* OtherViewController.m */,
 			);
@@ -557,8 +554,6 @@
 				CC8AA17B1C8DD4D2000ADE7B /* LeftDrawer */,
 				CCD4C92C1C87428A00657CA3 /* SettingsViewController.h */,
 				CCD4C92D1C87428A00657CA3 /* SettingsViewController.m */,
-				CCD4C9241C87428A00657CA3 /* LeftDrawerViewController.h */,
-				CCD4C9251C87428A00657CA3 /* LeftDrawerViewController.m */,
 				CCD4C9221C87428A00657CA3 /* FollowMajorViewController.h */,
 				CCD4C9231C87428A00657CA3 /* FollowMajorViewController.m */,
 				CCD4C92A1C87428A00657CA3 /* NoticeViewController.h */,
@@ -724,14 +719,13 @@
 				CCAF91D11C8AD29E00815592 /* MJRefreshConst.m in Sources */,
 				CCD4C9331C87428A00657CA3 /* MultiMediaViewController.m in Sources */,
 				CCD4C9301C87428A00657CA3 /* FollowMajorViewController.m in Sources */,
-				CCD4C9311C87428A00657CA3 /* LeftDrawerViewController.m in Sources */,
 				CC12F3971C8952BA00F4C425 /* IndustryCollectionViewCell.m in Sources */,
 				CCAF91D41C8AD29E00815592 /* UIView+MJExtension.m in Sources */,
 				CCAA07511C8D6A0800393F15 /* FriendDetailViewController.m in Sources */,
 				CCAF91CC1C8AD29E00815592 /* MJRefreshBackStateFooter.m in Sources */,
-				CC8AA17E1C8DD4F0000ADE7B /* LeftDrawerScrollViewController.m in Sources */,
 				CCAF91CF1C8AD29E00815592 /* MJRefreshStateHeader.m in Sources */,
 				CCAA07571C8D94DC00393F15 /* MusicListModel.m in Sources */,
+				CC8AA1841C8DEBF7000ADE7B /* LeftDrawerViewController.m in Sources */,
 				CCC6A0FA1C841F460017D874 /* AFNetworkReachabilityManager.m in Sources */,
 				CCD4C9321C87428A00657CA3 /* LocationInnerViewController.m in Sources */,
 				BC5C249C1C770CB9003D6FE9 /* IndustryViewController.m in Sources */,

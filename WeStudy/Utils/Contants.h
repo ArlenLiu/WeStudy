@@ -18,6 +18,9 @@
 #define WIDTH self.view.bounds.size.width
 #define HEIGHT self.view.bounds.size.height
 
+// 抽屉宽度
+#define WIDTH_DRAWER 200
+
 // APP 默认 蓝色值
 #define BlueDefault [UIColor colorWithRed:77/255.0 green:132/255.0 blue:241/255.0 alpha:1.0]
 // APP 背景 蓝色值
