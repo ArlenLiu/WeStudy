@@ -8,6 +8,9 @@
 
 #import "Contants.h"
 
+// 极光推送 key
+NSString * const JPUSH_KEY = @"607a017e0a66ffbdf79e782e";
+
 // 高德地图 KEY com.arlenly.WeStudy
 NSString * const AMAP_KEY_LY = @"fd144f4d4f1f16445db2cd8c38aa661f";
 // com.arlen.WeStudy

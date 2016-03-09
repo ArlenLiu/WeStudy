@@ -13,8 +13,6 @@
 #import "FrendsViewController.h"
 #import "ShareViewController.h"
 #import "PersonalViewController.h"
-//#import "LeftDrawerViewController.h"
-//#import "PopMenu.h"
 
 @interface RootViewController ()
 {
@@ -22,9 +20,6 @@
     BOOL leftDrawerBool;
     
 }
-
-/** 弹出菜单栏*/
-//@property (nonatomic, strong) PopMenu *popMenu;
 
 @end
 
@@ -55,60 +50,7 @@
     [self.tabBarController.tabBar addSubview:centerBtn];
     [centerBtn addTarget:self action:@selector(centerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    //创建可变数组接收菜单按钮
-//    NSMutableArray *items = [[NSMutableArray alloc] init];
-//    
-//    //创建菜单按钮
-//    MenuItem *menuItem = [MenuItem itemWithTitle:@"Flickr" iconName:@"music"];
-//    [items addObject:menuItem];
-//    
-//    menuItem = [MenuItem itemWithTitle:@"Google+" iconName:@"post_type_bubble_googleplus" glowColor:[UIColor colorWithRed:0.840 green:0.264 blue:0.208 alpha:0.800]];
-//    [items addObject:menuItem];
-//    
-//    menuItem = [MenuItem itemWithTitle:@"Instagram" iconName:@"post_type_bubble_instagram" glowColor:[UIColor colorWithRed:0.232 green:0.442 blue:0.687 alpha:0.800]];
-//    [items addObject:menuItem];
-//    
-//    menuItem = [MenuItem itemWithTitle:@"Twitter" iconName:@"post_type_bubble_twitter" glowColor:[UIColor colorWithRed:0.000 green:0.509 blue:0.687 alpha:0.800]];
-//    [items addObject:menuItem];
-//    
-//    menuItem = [MenuItem itemWithTitle:@"Youtube" iconName:@"post_type_bubble_youtube" glowColor:[UIColor colorWithRed:0.687 green:0.164 blue:0.246 alpha:0.800]];
-//    [items addObject:menuItem];
-//    
-//    menuItem = [MenuItem itemWithTitle:@"Facebook" iconName:@"post_type_bubble_facebook" glowColor:[UIColor colorWithRed:0.258 green:0.245 blue:0.687 alpha:0.800]];
-//    [items addObject:menuItem];
-//    
-//    //加载popMenu
-//    if (!_popMenu) {
-//        _popMenu = [[PopMenu alloc] initWithFrame:self.view.bounds items:items];
-//        _popMenu.menuAnimationType = kPopMenuAnimationTypeSina;
-//    }
-//    
-//    if (_popMenu.isShowed) {
-//        return;
-//    }
-//    
-//#pragma mark - 点击图标选择操作
-//    _popMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem) {
-//        
-//        //进行点击图片相关操作
-//        NSLog(@"%@",selectedItem.title);
-//        
-//    };
-//    
-//    //显示到界面
-//    [_popMenu showMenuAtView:self.view];
 }
-/*
-UIModalPresentationFullScreen = 0,
-UIModalPresentationPageSheet NS_ENUM_AVAILABLE_IOS(3_2) __TVOS_PROHIBITED,
-UIModalPresentationFormSheet NS_ENUM_AVAILABLE_IOS(3_2) __TVOS_PROHIBITED,
-UIModalPresentationCurrentContext NS_ENUM_AVAILABLE_IOS(3_2),
-UIModalPresentationCustom NS_ENUM_AVAILABLE_IOS(7_0),
-UIModalPresentationOverFullScreen NS_ENUM_AVAILABLE_IOS(8_0),
-UIModalPresentationOverCurrentContext NS_ENUM_AVAILABLE_IOS(8_0),
-UIModalPresentationPopover NS_ENUM_AVAILABLE_IOS(8_0) __TVOS_PROHIBITED,
-UIModalPresentationNone NS_ENUM_AVAILABLE_IOS(7_0) = -1,
-*/
 
 - (void)centerBtnClick:(UIButton *)btn {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

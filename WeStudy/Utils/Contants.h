@@ -29,6 +29,9 @@
 // UITabBar 高度
 #define HEIGHT_TABBAR self.tabBarController.tabBar.frame.size.height
 
+// 极光推送 key
+extern NSString * const JPUSH_KEY;
+
 // 高德室内地图 KEY 支持 iOS 6.0 及以上系统。
 extern NSString * const AMAP_KEY_LY;
 extern NSString * const AMAP_KEY;

@@ -72,6 +72,16 @@
 		CCDFF6171C8D105700623E60 /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDFF6161C8D105700623E60 /* DetailModel.m */; };
 		CCDFF61E1C8D265E00623E60 /* AddressBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDFF61D1C8D265E00623E60 /* AddressBookModel.m */; };
 		CCDFF6201C8D269F00623E60 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCDFF61F1C8D269F00623E60 /* AddressBook.framework */; };
+		CCE5431D1C8FFD0C00C29D3E /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5431B1C8FFD0C00C29D3E /* jpush-ios-2.1.0.a */; };
+		CCE5431F1C8FFD4A00C29D3E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5431E1C8FFD4A00C29D3E /* CFNetwork.framework */; };
+		CCE543211C8FFD5200C29D3E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE543201C8FFD5200C29D3E /* CoreFoundation.framework */; };
+		CCE543231C8FFD5D00C29D3E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE543221C8FFD5D00C29D3E /* CoreTelephony.framework */; };
+		CCE543251C8FFD6800C29D3E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE543241C8FFD6800C29D3E /* SystemConfiguration.framework */; };
+		CCE543271C8FFD7200C29D3E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE543261C8FFD7200C29D3E /* CoreGraphics.framework */; };
+		CCE543291C8FFD7800C29D3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE543281C8FFD7800C29D3E /* Foundation.framework */; };
+		CCE5432B1C8FFD8200C29D3E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5432A1C8FFD8200C29D3E /* UIKit.framework */; };
+		CCE5432D1C8FFD8C00C29D3E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5432C1C8FFD8C00C29D3E /* Security.framework */; };
+		CCE5432F1C8FFE2600C29D3E /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCE5432E1C8FFE2600C29D3E /* PushConfig.plist */; };
 		CCFF90C31C8DAA7900114E73 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFF90C21C8DAA7900114E73 /* libz.tbd */; };
 		CCFF90C51C8DAA8300114E73 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFF90C41C8DAA8300114E73 /* CoreLocation.framework */; };
 		CCFF90C71C8DAB6900114E73 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFF90C61C8DAB6900114E73 /* libstdc++.6.0.9.tbd */; };
@@ -205,6 +215,17 @@
 		CCDFF61C1C8D265E00623E60 /* AddressBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookModel.h; sourceTree = "<group>"; };
 		CCDFF61D1C8D265E00623E60 /* AddressBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookModel.m; sourceTree = "<group>"; };
 		CCDFF61F1C8D269F00623E60 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		CCE5431B1C8FFD0C00C29D3E /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
+		CCE5431C1C8FFD0C00C29D3E /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		CCE5431E1C8FFD4A00C29D3E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CCE543201C8FFD5200C29D3E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		CCE543221C8FFD5D00C29D3E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		CCE543241C8FFD6800C29D3E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CCE543261C8FFD7200C29D3E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CCE543281C8FFD7800C29D3E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CCE5432A1C8FFD8200C29D3E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CCE5432C1C8FFD8C00C29D3E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CCE5432E1C8FFE2600C29D3E /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
 		CCFF90C21C8DAA7900114E73 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		CCFF90C41C8DAA8300114E73 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CCFF90C61C8DAB6900114E73 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
@@ -222,9 +243,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCFF90C31C8DAA7900114E73 /* libz.tbd in Frameworks */,
+				CCE5432D1C8FFD8C00C29D3E /* Security.framework in Frameworks */,
+				CCE5432B1C8FFD8200C29D3E /* UIKit.framework in Frameworks */,
+				CCE543291C8FFD7800C29D3E /* Foundation.framework in Frameworks */,
+				CCE543271C8FFD7200C29D3E /* CoreGraphics.framework in Frameworks */,
+				CCE543251C8FFD6800C29D3E /* SystemConfiguration.framework in Frameworks */,
+				CCE543231C8FFD5D00C29D3E /* CoreTelephony.framework in Frameworks */,
+				CCE543211C8FFD5200C29D3E /* CoreFoundation.framework in Frameworks */,
+				CCE5431F1C8FFD4A00C29D3E /* CFNetwork.framework in Frameworks */,
 				CCFF90C71C8DAB6900114E73 /* libstdc++.6.0.9.tbd in Frameworks */,
 				CCFF90C51C8DAA8300114E73 /* CoreLocation.framework in Frameworks */,
-				CCFF90C31C8DAA7900114E73 /* libz.tbd in Frameworks */,
+				CCE5431D1C8FFD0C00C29D3E /* jpush-ios-2.1.0.a in Frameworks */,
 				CCAA07531C8D897300393F15 /* MediaPlayer.framework in Frameworks */,
 				CCDFF6201C8D269F00623E60 /* AddressBook.framework in Frameworks */,
 				CC7108E11C8C3A7D003C2C5F /* WebKit.framework in Frameworks */,
@@ -271,6 +301,7 @@
 			children = (
 				BC5C240C1C769F8E003D6FE9 /* Info.plist */,
 				BC5C23FC1C769F8E003D6FE9 /* main.m */,
+				CCE5432E1C8FFE2600C29D3E /* PushConfig.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -359,6 +390,7 @@
 		CC12F3A11C8962D200F4C425 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				CCE5431A1C8FFD0C00C29D3E /* lib-JPUSH */,
 				CCFF90D21C8DABCA00114E73 /* AMAPIndoor */,
 				CCAF91951C8AD29E00815592 /* MJRefresh */,
 				CC12F39B1C89629600F4C425 /* GData */,
@@ -603,6 +635,24 @@
 			name = Industry;
 			sourceTree = "<group>";
 		};
+		CCE5431A1C8FFD0C00C29D3E /* lib-JPUSH */ = {
+			isa = PBXGroup;
+			children = (
+				CCE5432C1C8FFD8C00C29D3E /* Security.framework */,
+				CCE5432A1C8FFD8200C29D3E /* UIKit.framework */,
+				CCE543281C8FFD7800C29D3E /* Foundation.framework */,
+				CCE543261C8FFD7200C29D3E /* CoreGraphics.framework */,
+				CCE543241C8FFD6800C29D3E /* SystemConfiguration.framework */,
+				CCE543221C8FFD5D00C29D3E /* CoreTelephony.framework */,
+				CCE543201C8FFD5200C29D3E /* CoreFoundation.framework */,
+				CCE5431E1C8FFD4A00C29D3E /* CFNetwork.framework */,
+				CCE5431B1C8FFD0C00C29D3E /* jpush-ios-2.1.0.a */,
+				CCE5431C1C8FFD0C00C29D3E /* JPUSHService.h */,
+			);
+			name = "lib-JPUSH";
+			path = lib;
+			sourceTree = "<group>";
+		};
 		CCFF90C81C8DABC200114E73 /* include */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,13 +706,13 @@
 				TargetAttributes = {
 					BC5C23F71C769F8D003D6FE9 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = VS333XYTFV;
+						DevelopmentTeam = 62J9PNA9KJ;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -695,6 +745,7 @@
 				CCA600EC1C8086D7002AF9D2 /* Assets.xcassets in Resources */,
 				CCAF91D01C8AD29E00815592 /* MJRefresh.bundle in Resources */,
 				BC5C24061C769F8E003D6FE9 /* Main.storyboard in Resources */,
+				CCE5432F1C8FFE2600C29D3E /* PushConfig.plist in Resources */,
 				CCFF90D01C8DABC200114E73 /* indoor.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -886,9 +937,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/WeStudy/Frameworks",
+					"$(PROJECT_DIR)/WeStudy/Frameworks/lib",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.arlenly.WeStudy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arlen.WeStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -908,9 +960,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/WeStudy/Frameworks",
+					"$(PROJECT_DIR)/WeStudy/Frameworks/lib",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.arlenly.WeStudy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arlen.WeStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
