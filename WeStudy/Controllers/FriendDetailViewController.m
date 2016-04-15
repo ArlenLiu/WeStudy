@@ -8,7 +8,6 @@
 //
 
 #import "FriendDetailViewController.h"
-#import "Contants.h"
 
 @interface FriendDetailViewController () <UITableViewDataSource,UITableViewDelegate>
 {

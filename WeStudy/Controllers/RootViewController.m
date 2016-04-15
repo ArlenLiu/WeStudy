@@ -7,7 +7,6 @@
 //
 
 #import "RootViewController.h"
-#import "Contants.h"
 #import "IndustryViewController.h"
 #import "TrendsViewController.h"
 #import "FrendsViewController.h"
@@ -45,10 +44,10 @@
     self.tabBarController.tabBar.barTintColor = BlueDefault;
     
     // 分栏正中间按钮
-    UIButton *centerBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH / 2 - HEIGHT_TABBAR / 2, 0, HEIGHT_TABBAR, HEIGHT_TABBAR)];
-    [centerBtn setBackgroundImage:[UIImage imageNamed:@"icon_share"] forState:UIControlStateNormal];
-    [self.tabBarController.tabBar addSubview:centerBtn];
-    [centerBtn addTarget:self action:@selector(centerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    UIButton *centerBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH / 2 - HEIGHT_TABBAR / 2, 0, HEIGHT_TABBAR, HEIGHT_TABBAR)];
+//    [centerBtn setBackgroundImage:[UIImage imageNamed:@"icon_share"] forState:UIControlStateNormal];
+//    [self.tabBarController.tabBar addSubview:centerBtn];
+//    [centerBtn addTarget:self action:@selector(centerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
@@ -60,7 +59,7 @@
     
 }
 
-- (void)leftNavi {
+- (void)leftNavi { 
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     // 导航条背景色

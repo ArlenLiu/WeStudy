@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "Contants.h"
 #import "JPUSHService.h"
 
 @interface AppDelegate ()

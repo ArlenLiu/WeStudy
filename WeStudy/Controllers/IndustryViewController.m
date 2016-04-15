@@ -7,7 +7,6 @@
 //
 
 #import "IndustryViewController.h"
-#import "Contants.h"
 #import "IndustryCollectionViewCell.h"
 
 #define BTN_START_TAG 888

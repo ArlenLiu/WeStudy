@@ -18,7 +18,7 @@ NSString * const AMAP_KEY = @"ef8db51df90f01e69130dad8cfe36649";
 
 // 登录接口
 NSString * const URL_LOGIN_LOCAL = @"http://localhost/westudy/loginios.php";
-NSString * const URL_LOGIN_LGJ = @"http://www.liugangjian.com/loginios.php";
+NSString * const URL_LOGIN_LGJ = @"http://www.liugangjian.com/ios/loginios.php";
 
 // OSChina开源中国接口：
 // 综合 news_list 网页html

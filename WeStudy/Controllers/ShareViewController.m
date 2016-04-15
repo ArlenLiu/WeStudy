@@ -9,6 +9,7 @@
 #import "ShareViewController.h"
 
 @interface ShareViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *back;
 
 @end
 
@@ -23,8 +24,9 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     // 设置背景色
     self.view.backgroundColor = [UIColor lightGrayColor];
-    // 右侧按钮标题
-//    self.navigationItem.title = @"share";
+    
+    self.back.layer.cornerRadius = 30;
+    self.back.clipsToBounds = YES;
     
 }
 

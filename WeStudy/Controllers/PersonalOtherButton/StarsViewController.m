@@ -22,7 +22,7 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     // 设置背景色
     
-    self.view.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:243/255.0 alpha:1.0];
+    self.view.backgroundColor = TabBarBG;
     // 右侧按钮标题
     self.navigationItem.title = @"收藏";
     

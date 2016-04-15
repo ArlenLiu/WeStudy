@@ -25,6 +25,8 @@
 #define BlueDefault [UIColor colorWithRed:77/255.0 green:132/255.0 blue:241/255.0 alpha:1.0]
 // APP 背景 蓝色值
 #define BlueDefaultBackground [UIColor colorWithRed:62/255.0 green:107/255.0 blue:187/255.0 alpha:1.0]
+// TabBar 颜色
+#define TabBarBG [UIColor colorWithRed:235/255.0 green:235/255.0 blue:243/255.0 alpha:1.0]
 
 // UITabBar 高度
 #define HEIGHT_TABBAR self.tabBarController.tabBar.frame.size.height

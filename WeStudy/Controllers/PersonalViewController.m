@@ -7,7 +7,6 @@
 //
 
 #import "PersonalViewController.h"
-#import "Contants.h"
 #import "LoginViewController.h"
 #import "SettingsViewController.h"
 #import "FollowMajorViewController.h"
@@ -16,6 +15,7 @@
 #import "LocationInnerViewController.h"
 #import "MultiMediaViewController.h"
 #import "MaterialStoreViewController.h"
+#import "ShareViewController.h"
 
 @interface PersonalViewController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -52,6 +52,23 @@
     // 获取通知中心 -- 注销
 //    NSNotificationCenter *centerLogout = [NSNotificationCenter defaultCenter];
 //    [centerLogout addObserver:self selector:@selector(logoutCenter:) name:@"logout" object:nil];
+    [NSMutableArray array];
+    
+    // 分栏正中间按钮
+    UIButton *centerBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH / 2 - HEIGHT_TABBAR / 2, 0, HEIGHT_TABBAR, HEIGHT_TABBAR)];
+    [centerBtn setBackgroundImage:[UIImage imageNamed:@"icon_share"] forState:UIControlStateNormal];
+    [self.tabBarController.tabBar addSubview:centerBtn];
+    [centerBtn addTarget:self action:@selector(centerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+- (void)centerBtnClick:(UIButton *)btn {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ShareViewController *share = [story instantiateViewControllerWithIdentifier:@"course"];
+//    self.modalPresentationStyle = UIModalPresentationPopover;
+//    [self.tabBarController presentViewController:share animated:YES completion:nil];
+//    [self.navigationController presentViewController:share animated:YES completion:nil];
+    [self presentViewController:share animated:YES completion:nil];
     
 }
 

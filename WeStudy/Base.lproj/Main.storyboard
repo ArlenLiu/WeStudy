@@ -263,11 +263,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVm-WL-rpS">
-                                <rect key="frame" x="98" y="417" width="124" height="53"/>
+                                <rect key="frame" x="130" y="410" width="60" height="60"/>
                                 <color key="backgroundColor" red="1" green="0.63385474519999996" blue="0.36554020770000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="124" id="OOM-ji-nAX"/>
-                                    <constraint firstAttribute="height" constant="53" id="z3z-D7-0Cy"/>
+                                    <constraint firstAttribute="width" constant="60" id="OOM-ji-nAX"/>
+                                    <constraint firstAttribute="height" constant="60" id="z3z-D7-0Cy"/>
                                 </constraints>
                                 <state key="normal" title="返回">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -284,6 +284,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9y8-Lg-Wml"/>
+                    <connections>
+                        <outlet property="back" destination="xVm-WL-rpS" id="m0H-Og-gon"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g6L-M5-JEb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
