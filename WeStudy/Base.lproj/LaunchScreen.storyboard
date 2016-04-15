@@ -2,8 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -19,19 +17,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen_start" translatesAutoresizingMaskIntoConstraints="NO" id="oFJ-3r-lZu">
-                                <rect key="frame" x="16" y="188" width="288" height="150"/>
+                                <rect key="frame" x="12" y="167" width="296" height="234"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="oFJ-3r-lZu" secondAttribute="height" multiplier="48:25" id="5Sy-ze-TUB"/>
-                                    <constraint firstAttribute="height" constant="150" id="yiL-RR-fK6"/>
+                                    <constraint firstAttribute="width" constant="296" id="8Yz-Lb-9Xf"/>
+                                    <constraint firstAttribute="height" constant="234" id="sor-1B-iCv"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="oFJ-3r-lZu" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="G9c-kf-EIJ"/>
-                            <constraint firstItem="oFJ-3r-lZu" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="188" id="cmu-u6-si5"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="oFJ-3r-lZu" secondAttribute="bottom" constant="230" id="jXw-NM-fzr"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="oFJ-3r-lZu" secondAttribute="trailing" id="nJb-Z3-1XO"/>
+                            <constraint firstItem="oFJ-3r-lZu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6t0-go-6i6"/>
+                            <constraint firstItem="oFJ-3r-lZu" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Fdd-ph-zpn"/>
                         </constraints>
                     </view>
                 </viewController>

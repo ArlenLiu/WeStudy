@@ -25,7 +25,7 @@
     // 导航条返回键文字颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     // 设置背景色
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = TabBarBG;
     // 右侧按钮标题
     self.navigationItem.title = @"设置";
     
@@ -43,16 +43,22 @@
     // 删除 NSUserDefaults 文件 -- 没用？
     NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *pathUserDefaults = [NSString stringWithFormat:@"%@/Preferences/",libraryPath];
-    NSString *filePath = [pathUserDefaults stringByAppendingPathComponent:@"com.arlen.WeStudy.plist"];
+    NSString *identifier  = [[NSBundle mainBundle] bundleIdentifier];
+    NSString *filePath = [pathUserDefaults stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",identifier]];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if ([fileManager fileExistsAtPath:filePath]) {
         // 存在 NSUserDefaults 文件，删除之，退出登录
         [fileManager removeItemAtPath:filePath error:nil];
     }
+    
+    // 发送当前页的通知 -- 注销账号
+    NSNotification *notice = [NSNotification notificationWithName:@"logout" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:notice];
+    
     // ?
     [self.navigationController popViewControllerAnimated:YES];
     
-    ///////////////// 待完成 ////////////////////
+    ///////////////// 待完成，注销之后界面变化或退出程序？ ////////////////////
 }
 
 

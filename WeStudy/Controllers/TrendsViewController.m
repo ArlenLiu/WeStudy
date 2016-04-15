@@ -9,6 +9,7 @@
 #import "TrendsViewController.h"
 
 @interface TrendsViewController ()
+@property (strong, nonatomic) IBOutlet UIView *searh;
 
 @end
 
@@ -20,7 +21,9 @@
     
 //    self.view.backgroundColor = [UIColor yellowColor];
     
+    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -20,10 +20,14 @@
     // Override point for customization after application launch.
     
     // 设置起始页启动停留时间
-//    [NSThread sleepForTimeInterval:0.0];
+//    [NSThread sleepForTimeInterval:3.0];
     
     // 隐藏 navigationbar 下划线
 //    [self hideNaviUnderline];
+    
+    // 设置 tabbar 的选择状态和未选择状态颜色
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:10.0f],NSForegroundColorAttributeName : [UIColor whiteColor]} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:10.0f], NSForegroundColorAttributeName : [UIColor colorWithRed:190/255.0 green:190/255.0 blue:190/255.0 alpha:1.0]} forState:UIControlStateNormal];
     
     // 极光推送
     [self JPUSH];
@@ -31,16 +35,7 @@
     /*
      2.1.0 版本开始，新增了带参数的setupWithOption初始化方法，可通过此方法等参数传入AppKey等信息。1.8.8及之前版本的 JPush SDK只能通过PushConfig.plist配置AppKey等信息。
      */
-    [JPUSHService setupWithOption:launchOptions appKey:@"607a017e0a66ffbdf79e782e" channel:@"App Store" apsForProduction:0];
-    
-    
-    // 设置 tabbar 未选中和选中的文字颜色
-//    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:10.0f],NSForegroundColorAttributeName : [UIColor whiteColor]} forState:UIControlStateSelected];
-//    
-//    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:10.0f], NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateNormal];
-//    [[UITabBar appearance] setTintColor:[UIColor blackColor]];
-    
-    
+    [JPUSHService setupWithOption:launchOptions appKey:JPUSH_KEY channel:@"App Store" apsForProduction:1];
     
     return YES;
 }
@@ -68,6 +63,7 @@
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSLog(@"%@",error);
 }
+
 
 // 隐藏 navigationbar 下划线
 - (void)hideNaviUnderline {

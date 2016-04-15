@@ -7,7 +7,6 @@
 //
 
 #import "PersonalViewController.h"
-#import "Contants.h"
 #import "LoginViewController.h"
 #import "SettingsViewController.h"
 #import "FollowMajorViewController.h"
@@ -16,8 +15,9 @@
 #import "LocationInnerViewController.h"
 #import "MultiMediaViewController.h"
 #import "MaterialStoreViewController.h"
+#import "ShareViewController.h"
 
-@interface PersonalViewController () <UIActionSheetDelegate>
+@interface PersonalViewController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *portraitView;
 
@@ -43,37 +43,85 @@
     self.portraitView.layer.cornerRadius = self.portraitView.frame.size.width / 2;
     self.portraitView.clipsToBounds = YES;
     
-    // 初始化 NSUserDefaults，自动登录
+    // 初始化 NSUserDefaults
     self.loginUserDefaults = [NSUserDefaults standardUserDefaults];
     
     // storyboard 初始化
     self.storyMain = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
+    // 获取通知中心 -- 注销
+//    NSNotificationCenter *centerLogout = [NSNotificationCenter defaultCenter];
+//    [centerLogout addObserver:self selector:@selector(logoutCenter:) name:@"logout" object:nil];
+    [NSMutableArray array];
     
-    // 注销功能、账号切换功能
+    // 分栏正中间按钮
+    UIButton *centerBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH / 2 - HEIGHT_TABBAR / 2, 0, HEIGHT_TABBAR, HEIGHT_TABBAR)];
+    [centerBtn setBackgroundImage:[UIImage imageNamed:@"icon_share"] forState:UIControlStateNormal];
+    [self.tabBarController.tabBar addSubview:centerBtn];
+    [centerBtn addTarget:self action:@selector(centerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
+}
+
+- (void)centerBtnClick:(UIButton *)btn {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ShareViewController *share = [story instantiateViewControllerWithIdentifier:@"course"];
+//    self.modalPresentationStyle = UIModalPresentationPopover;
+//    [self.tabBarController presentViewController:share animated:YES completion:nil];
+//    [self.navigationController presentViewController:share animated:YES completion:nil];
+    [self presentViewController:share animated:YES completion:nil];
     
+}
+
+// 接收通知 -- 注销
+- (void)logoutCenter:(NSNotificationCenter *)notice {
+    [self.userName setTitle:@"点击头像登录或注册" forState:UIControlStateNormal];
+    [self.studyData setTitle:@"" forState:UIControlStateNormal];
+    self.portraitView.image = [UIImage imageNamed:@"portrait0"];
+    
+    // 删除 NSUserDefaults 文件 -- 没用？
+    NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *pathUserDefaults = [NSString stringWithFormat:@"%@/Preferences/",libraryPath];
+    NSString *identifier  = [[NSBundle mainBundle] bundleIdentifier];
+    NSString *filePath = [pathUserDefaults stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",identifier]];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:filePath]) {
+        // 存在 NSUserDefaults 文件，删除之，退出登录
+        [fileManager removeItemAtPath:filePath error:nil];
+    }
+    NSLog(@"****%@",filePath);
 }
 
 // 登录成功后，刷新数据（由于从登录页面成功后到此页面是 dismiss 的，数据在那边刷新不了，在这里做）
 // 如果已经登录（NsUserDefaults 中有登录账户），直接进入显示登录
 - (void)viewWillAppear:(BOOL)animated {
-    // 账户信息，来自 NSUserDefaults
     NSString *loginok = [self.loginUserDefaults stringForKey:@"loginok"];
     
     // 登录成功，刷新用户名、学习数据、头像，自动登录
     if (loginok != nil) {
-        NSString *name = [self.loginUserDefaults stringForKey:@"username"]; // 用户名
-        NSString *studyata  =[self.loginUserDefaults stringForKey:@"studydata"];    // 学习数据
-        NSString *domainOfPortrait  =[self.loginUserDefaults stringForKey:@"domainOfPortrait"]; // 头像
+        NSString *name = [self.loginUserDefaults stringForKey:@"username"];
+        NSString *studyata  =[self.loginUserDefaults stringForKey:@"studydata"];
+        NSString *pathOfPortrait  =[self.loginUserDefaults stringForKey:@"pathOfPortrait"];
         
-        [self.userName setTitle:[NSString stringWithFormat:@"欢迎您:%@",name] forState:UIControlStateNormal]; // 用户名
-        [self.studyData setTitle:studyata forState:UIControlStateNormal];   // 学习数据
-        self.portraitView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:domainOfPortrait]]];    // 头像
+        [self.userName setTitle:[NSString stringWithFormat:@"欢迎您:%@",name] forState:UIControlStateNormal];
+        [self.studyData setTitle:studyata forState:UIControlStateNormal];
+        
+        // 保证图片存在，没有就从网络请求重新缓存 -- 否则切换界面刷新界面时出现卡顿
+        NSFileManager *manager = [NSFileManager defaultManager];
+        if ([manager fileExistsAtPath:pathOfPortrait]) {
+            self.portraitView.image = [UIImage imageNamed:pathOfPortrait];    // 头像 -- 已登录
+        }else {
+            // 沙盒中没有图片就从网络请求
+            NSURL *url = [NSURL URLWithString:[self.loginUserDefaults stringForKey:@"urlOfPortrait"]];
+            [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:url] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+                self.portraitView.image = [UIImage imageWithData:data];     // 头像 -- 已登录
+                // 将图片写入缓存，此时重新获取沙盒 pathOfPortrait 这个路径可能会发生变化
+                [data writeToFile:pathOfPortrait atomically:YES];   // !!! 路径
+            }];
+        }
+        // 测试
+//        NSLog(@"%@",pathOfPortrait);
+//        NSLog(@"%@",[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0]);
     }
-    // 已经登陆过不能再请求图片，从图片缓存读取
-    ///////////////// 待完成 ////////////////////
-    
 }
 
 // 头像图片手势
@@ -95,12 +143,31 @@
 
 // 修改头像的协议方法
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
-    ///////////////// 待完成 ////////////////////
+    if (buttonIndex == 0) {
+        // 拍照
+        // 创建 UIImagePickerController 图片选择器
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        // 指定其代理对象 -- 需要指定两个协议
+        picker.delegate = self;
+        // 设置资源类型，打开相机，图片的来源来自拍摄照片
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        // 显示，模态方式
+        [self presentViewController:picker animated:YES completion:nil];
+    }else if (buttonIndex == 1) {
+        // 相册
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        [self presentViewController:picker animated:YES completion:nil];
+    }
+    // buttonIndex == 2 为取消
 }
 
-// 左侧书签按钮 -- 抽屉
-///////////////// 待完成 ////////////////////
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    ////
+    NSLog(@"%@",info);
+}
 
 // navigation 右侧设置按钮
 - (IBAction)rightSettings:(UIBarButtonItem *)sender {

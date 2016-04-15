@@ -7,8 +7,9 @@
 //
 
 #import "MaterialStoreViewController.h"
+#import <WebKit/WebKit.h>
 
-@interface MaterialStoreViewController ()
+@interface MaterialStoreViewController () <WKNavigationDelegate,WKUIDelegate>
 
 @end
 
@@ -20,14 +21,38 @@
     
     // 导航条返回键文字颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    // 设置背景色
-    self.view.backgroundColor = [UIColor whiteColor];
     // 右侧按钮标题
     self.navigationItem.title = @"资料库";
     
+    // WKWebView
+    WKWebView *wkWeb = [[WKWebView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [wkWeb loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com/"]]];
+    wkWeb.allowsBackForwardNavigationGestures = YES;    // 允许手势滑动返回
+    [self.view addSubview:wkWeb];
     
+    wkWeb.navigationDelegate = self;
+    wkWeb.UIDelegate = self;
     
-    
+}
+
+//
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
+//    NSLog(@"开始加载的回调函数");
+}
+
+//
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
+//    NSLog(@"内容返回的回调函数");
+}
+
+//
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+//    NSLog(@"加载完事的回调函数");
+}
+
+//
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    NSLog(@"加载失败: %@",error.description);
 }
 
 - (void)didReceiveMemoryWarning {
